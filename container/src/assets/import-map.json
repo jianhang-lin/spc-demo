@@ -1,7 +1,7 @@
 {
   "imports": {
     "app1": "http://localhost:4201/main.js",
-    "spc": "http://localhost:4202/main.js"
+    "spc": "http://localhost:4202/spc/home/main.js"
   }
 }
 
