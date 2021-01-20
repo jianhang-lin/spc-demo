@@ -30,6 +30,12 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "../../../libraries/42q-platform-shared-ui-library/projects/shared-ui/src/lib/shared-scss",
+                "/app/shared-scss"
+              ]
+            },
             "scripts": [],
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js",
