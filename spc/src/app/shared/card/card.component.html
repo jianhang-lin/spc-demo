@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    <!-- header slot here -->
+    <ng-content select="[card-header]"></ng-content>
+  </div>
+  <div class="card-body">
+    <!-- single slot transclusion here -->
+    <ng-content select="[card-body]"></ng-content>
+  </div>
+  <div class="card-footer">
+    <!-- footer slot here -->
+    <ng-content select="[card-footer]"></ng-content>
+  </div>
+</div>
