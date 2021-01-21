@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SpaHostComponent } from "./spa-host/spa-host.component";
+import { SpaHostComponent } from './spa-host/spa-host.component';
 
 
 const routes: Routes = [

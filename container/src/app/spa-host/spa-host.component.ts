@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { zip } from "rxjs";
-import { SingleSpaService } from "../../service/single-spa.service";
+import { zip } from 'rxjs';
+import { SingleSpaService } from '../../service/single-spa.service';
 
 @Component({
   selector: 'slb-spa-host',
