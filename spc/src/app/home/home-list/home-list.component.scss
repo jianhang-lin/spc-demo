@@ -1,0 +1,21 @@
+$theme: default;
+@import 'scss/dependencies';
+
+.spc-home-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.spc-home-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spc-home-message1 {
+  font-size: 15px;
+}
