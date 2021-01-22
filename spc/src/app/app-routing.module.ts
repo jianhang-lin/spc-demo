@@ -6,10 +6,6 @@ import { MonitorGroupListComponent } from './monitor-group/monitor-group-list/mo
 
 const routes: Routes = [
   {
-   path: 'aa',
-    redirectTo: '/aa', pathMatch: 'full'
-  },
-  {
     path: '**',
     component: EmptyRouteComponent
   }
