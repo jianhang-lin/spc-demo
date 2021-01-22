@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm run serve:single-spa",
+    "build": "npm run build:single-spa",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:single-spa": "ng build --prod --deploy-url http://localhost:4201/",
+    "build:single-spa": "ng build --prod --deploy-url /dist/app1 --output-hashing none",
     "serve:single-spa": "ng serve --disable-host-check --port 4201 --deploy-url http://localhost:4201/ --live-reload false"
   },
   "private": true,
