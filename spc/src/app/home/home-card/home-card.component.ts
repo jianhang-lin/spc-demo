@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'spc-home-card',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeCardComponent implements OnInit {
 
+  @Input() item;
+  @Input() index;
+  @Output() doSelected = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClick() {
+    this.doSelected.emit();
+  }
 }

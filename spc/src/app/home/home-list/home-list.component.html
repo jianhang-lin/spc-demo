@@ -1,6 +1,9 @@
 <div class="spc-home-container">
   <br>
-  <spc-home-card></spc-home-card>
+  <div class="spc-home-container" >
+    <spc-home-card *ngFor="let homeCard of (homeCards$ | async); let i = index" [item]="homeCard" [index]="i" (doSelected)="selectHomeCard(i)" class="card"></spc-home-card>
+    <spc-home-card (doSelected)="selectHomeCard(5)"></spc-home-card>
+  </div>
   <div class="spc-home-message-container">
     <br>
     <span class="spc-home-message1">QUALITY IS THE GOAL, SOFTWARE IS THE TOOL.</span>
@@ -9,4 +12,6 @@
     <br>
     <span>Quality comes not from inspection but from continuous improvement of the process.</span>
   </div>
+  <a [href]="'/spc/aa'">ddd</a>
 </div>
+
