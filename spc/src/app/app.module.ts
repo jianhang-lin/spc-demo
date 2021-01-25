@@ -24,4 +24,4 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class SpcWidgetModule { }
+export class AppModule { }
