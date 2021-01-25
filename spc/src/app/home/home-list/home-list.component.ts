@@ -28,11 +28,10 @@ export class HomeListComponent implements OnInit {
   }
 
   selectHomeCard(index: number) {
-    console.log(index);
     const communityId = 10418;
     if (index === this.enterSpcCardIndex) {
-      // this.router.navigate(['spc/home/community_id/10418/monitor_groups']);
       this.isEnterSpcCard = true;
+      this.router.navigate(['/spc/monitor_groups']);
     }
   }
 }
