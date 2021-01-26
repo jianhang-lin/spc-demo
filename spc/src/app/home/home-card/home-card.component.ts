@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HomeCardModel } from '../../domain/home-card.model';
 
 @Component({
   selector: 'spc-home-card',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomeCardComponent implements OnInit {
 
-  @Input() item;
+  @Input() item: HomeCardModel;
   @Input() index;
   @Output() doSelected = new EventEmitter<void>();
   constructor() { }
