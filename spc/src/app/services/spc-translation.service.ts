@@ -7,9 +7,9 @@ import { TranslationService } from 'shared-ui';
 })
 export class SpcTranslationService extends TranslationService {
 
-    private widgetNames = ['user-administration-ui-users-list-widget', 'user-administration-ui-sign-in-widget'];
+  private widgetNames = ['spc-widget'];
 
-    getTranslation(): Observable<any> {
-        return super.getTranslation(this.widgetNames);
-    }
+  getTranslation(): Observable<any> {
+    return super.getTranslation(this.widgetNames);
+  }
 }

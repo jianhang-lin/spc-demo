@@ -9,9 +9,13 @@ import { AppComponent } from './app.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { SpcTranslationService } from './services/spc-translation.service';
 import { SpcTranslateLoaderModel } from './domain/spc-translate-loader.model';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { assetUrl } from '../single-spa/asset-url';
 
-export function createSpcLocalStorageTranslateLoader(translationService: SpcTranslationService) {
-  return new SpcTranslateLoaderModel(translationService);
+export function createSpcLocalStorageTranslateLoader(translationService: SpcTranslationService, http: HttpClient) {
+  // return new SpcTranslateLoaderModel(translationService);
+  return new TranslateHttpLoader(http, assetUrl('i18n') + '/', '.json');
 }
 
 @NgModule({
@@ -29,7 +33,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
       loader: {
         provide: TranslateLoader,
         useFactory: createSpcLocalStorageTranslateLoader,
-        deps: [SpcTranslationService]
+        deps: [SpcTranslationService, HttpClient]
       }
     })
   ],

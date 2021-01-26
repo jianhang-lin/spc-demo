@@ -1,0 +1,9 @@
+{
+  "i18ntest":"Test Project For i18n",
+  "hello": "Hello World !",
+  "author":"author: {{value}}",
+  "language":"language",
+  "header": {
+    "author": "Default.W"
+  }
+}

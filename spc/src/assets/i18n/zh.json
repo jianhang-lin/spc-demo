@@ -1,0 +1,9 @@
+{
+  "hello": "你好, 世界!",
+  "i18ntest":"测试项目(i18n)",
+  "author":"作者： {{value}}",
+  "language":"语言",
+  "header": {
+    "author": "Default.W"
+  }
+}
