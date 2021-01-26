@@ -31,7 +31,9 @@ export class HomeListComponent implements OnInit {
     const communityId = 10418;
     if (index === this.enterSpcCardIndex) {
       this.isEnterSpcCard = true;
-      this.router.navigate(['/spc/monitor_groups']);
+      this.router.navigate(['/spc/monitor_groups']).then(() => {
+        // do something
+      });
     }
   }
 }
