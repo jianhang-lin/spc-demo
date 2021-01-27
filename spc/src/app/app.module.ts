@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { MonitorGroupModule } from './monitor-group/monitor-group.module';
+import { MonitorModule } from './monitor/monitor.module';
+import { ChartModule } from './chart/chart.module';
 import { AppComponent } from './app.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { SpcTranslationService } from './services/spc-translation.service';
@@ -29,6 +31,8 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     SharedModule,
     HomeModule,
     MonitorGroupModule,
+    MonitorModule,
+    ChartModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

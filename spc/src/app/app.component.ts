@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {HomePageModel, HomePageModelBuilder} from './domain/home-page.model';
 
 @Component({
   selector: 'spc-root',
@@ -7,9 +8,10 @@ import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   title = 'This is SPC Project';
-  isHomePage: boolean;
+  homePage: HomePageModel;
+
   ngOnInit(): void {
-    this.isHomePage = true;
+    this.initHomePage();
   }
 
   ngOnDestroy(): void {
@@ -21,4 +23,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   isSpcPage() {
     return window.location.pathname === '/spc';
   }
+
+  initHomePage() {
+    this.homePage = new HomePageModelBuilder().getSpcHomePageModel();
+  }
+
 }
