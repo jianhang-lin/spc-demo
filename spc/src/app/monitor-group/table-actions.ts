@@ -4,7 +4,7 @@ export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
   NONFEDERATED = 'NONFEDERATED'
 }
-export let UsersEnableActionsRules: Array<EnableActionRule> = [
+export let MonitorGroupsEnableActionsRules: Array<EnableActionRule> = [
     { id: ActionType.changePass, field: 'userType', hasValue: UserDetailsType.NONFEDERATED },
     { id: ActionType.activate, field: 'active', hasValue: false },
     { id: ActionType.deactivate, field: 'active', hasValue: true },
@@ -13,7 +13,23 @@ export let UsersEnableActionsRules: Array<EnableActionRule> = [
     { id: ActionType.impersonate, isSingleSelection: true }
 ];
 
-export let UsersTableActions: Array<TableAction> = [
+export let MonitorGroupsEnableActionsRulesSite: Array<EnableActionRule> = [
+  { id: ActionType.edit, isSingleSelection: true, field: 'siteDto.id', doesNotHaveValue: '-1' },
+  { id: ActionType.copy, isSingleSelection: true },
+  { id: ActionType.delete, isSingleSelection: true, field: 'siteDto.id', doesNotHaveValue: '-1' },
+  { id: ActionType.view, isSingleSelection: true },
+  { id: ActionType.edit_as_view, isSingleSelection: true }
+];
+
+export let MonitorGroupsEnableActionsRules42Q: Array<EnableActionRule> = [
+  { id: ActionType.edit, isSingleSelection: true },
+  { id: ActionType.copy, isSingleSelection: true },
+  { id: ActionType.delete, isSingleSelection: true },
+  { id: ActionType.view, isSingleSelection: true },
+  { id: ActionType.edit_as_view, isSingleSelection: true }
+];
+
+export let MonitorGroupsTableActions: Array<TableAction> = [
     {
         id: ActionType.view,
         tooltipLabel: 'general.label.view-user',
