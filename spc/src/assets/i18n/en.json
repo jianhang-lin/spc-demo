@@ -7,5 +7,10 @@
       "net-user-id": "Shop Floor ID",
       "mds-url": "MDS URL/SFDC Web Service URL"
     }
+  },
+  "general": {
+    "label": {
+      "more": "More"
+    }
   }
 }

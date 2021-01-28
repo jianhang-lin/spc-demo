@@ -7,5 +7,10 @@
       "net-user-id": "车间编号",
       "mds-url": "MDS地址/SFDC网页服务地址"
     }
+  },
+  "general": {
+    "label": {
+      "more": "更多"
+    }
   }
 }
