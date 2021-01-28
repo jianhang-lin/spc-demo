@@ -10,7 +10,8 @@
   },
   "general": {
     "label": {
-      "more": "更多"
+      "more": "更多",
+      "clear-all": "清空全部"
     }
   }
 }

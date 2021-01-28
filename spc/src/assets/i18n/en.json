@@ -10,7 +10,8 @@
   },
   "general": {
     "label": {
-      "more": "More"
+      "more": "More",
+      "clear-all": "Clear All"
     }
   }
 }
