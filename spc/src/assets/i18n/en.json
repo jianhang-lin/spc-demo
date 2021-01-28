@@ -11,7 +11,10 @@
   "general": {
     "label": {
       "more": "More",
-      "clear-all": "Clear All"
+      "clear-all": "Clear All",
+      "rows": "Rows",
+      "page": "Page",
+      "of-many": "Many"
     }
   }
 }
