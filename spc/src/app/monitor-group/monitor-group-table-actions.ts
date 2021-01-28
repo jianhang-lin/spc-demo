@@ -4,7 +4,7 @@ export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
   NONFEDERATED = 'NONFEDERATED'
 }
-export let MonitorGroupsEnableActionsRules: Array<EnableActionRule> = [
+export let monitorGroupsEnableActionsRules: Array<EnableActionRule> = [
     { id: ActionType.changePass, field: 'userType', hasValue: UserDetailsType.NONFEDERATED },
     { id: ActionType.activate, field: 'active', hasValue: false },
     { id: ActionType.deactivate, field: 'active', hasValue: true },
@@ -13,15 +13,7 @@ export let MonitorGroupsEnableActionsRules: Array<EnableActionRule> = [
     { id: ActionType.impersonate, isSingleSelection: true }
 ];
 
-export let MonitorGroupsEnableActionsRulesSite: Array<EnableActionRule> = [
-  { id: ActionType.edit, isSingleSelection: true, field: 'siteDto.id', doesNotHaveValue: '-1' },
-  { id: ActionType.copy, isSingleSelection: true },
-  { id: ActionType.delete, isSingleSelection: true, field: 'siteDto.id', doesNotHaveValue: '-1' },
-  { id: ActionType.view, isSingleSelection: true },
-  { id: ActionType.edit_as_view, isSingleSelection: true }
-];
-
-export let MonitorGroupsEnableActionsRules42Q: Array<EnableActionRule> = [
+export let monitorGroupsEnableActionsRulesSite: Array<EnableActionRule> = [
   { id: ActionType.edit, isSingleSelection: true },
   { id: ActionType.copy, isSingleSelection: true },
   { id: ActionType.delete, isSingleSelection: true },
@@ -29,47 +21,55 @@ export let MonitorGroupsEnableActionsRules42Q: Array<EnableActionRule> = [
   { id: ActionType.edit_as_view, isSingleSelection: true }
 ];
 
-export let MonitorGroupsTableActions: Array<TableAction> = [
+export let monitorGroupsEnableActionsRules42Q: Array<EnableActionRule> = [
+  { id: ActionType.edit, isSingleSelection: true },
+  { id: ActionType.copy, isSingleSelection: true },
+  { id: ActionType.delete, isSingleSelection: true },
+  { id: ActionType.view, isSingleSelection: true },
+  { id: ActionType.edit_as_view, isSingleSelection: true }
+];
+
+export let monitorGroupsTableActions: Array<TableAction> = [
     {
         id: ActionType.view,
         tooltipLabel: 'general.label.view-user',
         tooltipPosition: TooltipPosition.top,
         icon: 'icon-eye-fill',
-        permissions: ['users-list.view-users']
+        // permissions: ['users-list.view-users']
     },
     {
         id: ActionType.edit,
         tooltipLabel: 'general.label.edit-user',
         tooltipPosition: TooltipPosition.top,
         icon: 'icon-edit-fill',
-        permissions: ['users-list.edit-user']
+        // permissions: ['users-list.edit-user']
     },
     {
         id: ActionType.activate,
         tooltipLabel: 'general.label.activate-user',
         tooltipPosition: TooltipPosition.top,
         icon: 'icon-checkmark-circle-fill',
-        permissions: ['users-list.activate-user']
+        // permissions: ['users-list.activate-user']
     },
     {
         id: ActionType.deactivate,
         tooltipLabel: 'general.label.deactivate-user',
         tooltipPosition: TooltipPosition.top,
         icon: 'icon-close-circle-fill',
-        permissions: ['users-list.deactivate-user']
+        // permissions: ['users-list.deactivate-user']
     },
     {
         id: ActionType.changePass,
         tooltipLabel: 'general.label.change-password',
         tooltipPosition: TooltipPosition.top,
         icon: 'icon-lock-fill',
-        permissions: ['users-list.change-password']
+        // permissions: ['users-list.change-password']
     },
     {
         id: ActionType.impersonate,
         tooltipLabel: 'general.label.impersonate-user',
         tooltipPosition: TooltipPosition.top,
         icon: 'icon-impersonate-fill',
-        permissions: ['users-list.impersonate-user']
+        // permissions: ['users-list.impersonate-user']
     }
 ];

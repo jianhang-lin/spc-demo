@@ -1,13 +1,20 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HomeCardModel } from '../../domain/home-card.model';
-import { Column } from 'shared-ui';
-import { UsersEnableActionsRules, UsersTableActions } from '../table-actions';
-import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
-import { TranslateService } from '@ngx-translate/core';
-import { admin42QMonitorGroupsListHeaderColumns, siteAdminMonitorGroupsListHeaderColumns } from '../monitor-groups-list.columns';
 import { isNull } from 'util';
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { Column } from 'shared-ui';
+import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
+import { MonitorGroupService } from '../../services/monitor-group.service';
+import { monitorGroupsColumns42QAdmin, monitorGroupsColumnsSite } from '../monitor-groups-list.columns';
+import {
+  monitorGroupsEnableActionsRules42Q,
+  monitorGroupsEnableActionsRulesSite,
+  monitorGroupsEnableActionsRules,
+  monitorGroupsTableActions
+} from '../monitor-group-table-actions';
 import { Customer } from '../../domain/list-user.model';
+import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
 
 export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
@@ -19,7 +26,7 @@ export enum UserDetailsType {
   templateUrl: './monitor-group-list.component.html',
   styleUrls: ['./monitor-group-list.component.scss']
 })
-export class MonitorGroupListComponent implements OnInit {
+export class MonitorGroupListComponent implements OnInit, AfterViewInit {
 
   @ViewChild('monitorGroupsTable', { static: false }) monitorGroupsTable: CustomizedTableComponent;
   @ViewChild('bulkUploadButton', { static: false }) bulkUploadButton: ElementRef;
@@ -38,100 +45,40 @@ export class MonitorGroupListComponent implements OnInit {
   availableFilters: Array<Column> = [];
   loggedUserDetails: any;
   loggedCustomer: Customer;
-  enableActionsRules = UsersEnableActionsRules;
-  availableTableActions = UsersTableActions;
+  enableActionsRules = monitorGroupsEnableActionsRules;
+  availableTableActions = monitorGroupsTableActions;
   filterBySite;
   filterByPlant;
   filterByCustomer;
-  constructor(private translateService: TranslateService, private httpClient: HttpClient) {
+  monitorGroupListSubscription: Subscription;
+  constructor(
+    private httpClient: HttpClient,
+    private translateService: TranslateService,
+    private monitorGroupService: MonitorGroupService,
+  ) {
     this.translateService.setDefaultLang('zh');
     this.translateService.use('zh');
   }
 
   ngOnInit() {
-    this.dropdownPlaceholder = this.translateService.instant('users-list.add-user');
-    this.showForm = false;
-    this.addUserOptions = [
-      { label: this.translateService.instant('users-list.federated'), value: UserDetailsType.FEDERATED },
-      { label: this.translateService.instant('users-list.non-federated'), value: UserDetailsType.NONFEDERATED }
-    ];
-    let anyDefaultFilter = false;
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams) {
-      const siteId = urlParams.get('siteId');
-      if (siteId) {
-        anyDefaultFilter = true;
-        this.httpClient.get('/user-administration/sites/' + siteId).subscribe((response) => {
-          this.filterBySite = response;
-          this.getLoggedUserInfo();
-        });
-      }
+    this.getLoggedUserInfo();
+    // this.loadDataSearchRequest();
+  }
 
-      const plantId = urlParams.get('plantId');
-      if (plantId) {
-        anyDefaultFilter = true;
-        this.httpClient.get('/user-administration/plants/' + plantId).subscribe((response) => {
-          this.filterByPlant = response;
-          this.getLoggedUserInfo();
-        });
-      }
-
-      const customerId = urlParams.get('customerId');
-      if (customerId) {
-        anyDefaultFilter = true;
-        this.httpClient.get('/user-administration/customers/' + customerId).subscribe((response) => {
-          this.filterByCustomer = response;
-          this.getLoggedUserInfo();
-        });
-      }
-    }
-    if (!anyDefaultFilter) {
-      this.getLoggedUserInfo();
-    }
-    // this.totalRecords = 1;
+  ngAfterViewInit(): void {
+    // document.getElementsByTagName(MonitorGroupListComponent.ROOT_SELECTOR)[0].parentElement.firstElementChild.remove();
   }
 
   getLoggedUserInfo() {
     this.loggedUserDetails = JSON.parse(window.localStorage.getItem('user'));
     this.is42qAdmin = isNull(this.loggedUserDetails) ? false : this.loggedUserDetails.is42QAdmin;
     this.is42qSite = JSON.parse(window.localStorage.getItem('IS_42Q_SITE'));
-    const currentSiteCache = JSON.parse(window.localStorage.getItem('CURRENT_SITE'));
-    this.loggedCustomer = isNull(currentSiteCache) ? null : currentSiteCache.customerDto as Customer;
+    this.enableActionsRules = this.is42qSite ? monitorGroupsEnableActionsRules42Q : monitorGroupsEnableActionsRulesSite;
+    this.monitorGroupService.setIs42qSite(this.is42qSite);
     this.tableColumns = this.is42qAdmin && this.is42qSite ?
-      admin42QMonitorGroupsListHeaderColumns : siteAdminMonitorGroupsListHeaderColumns;
-    let anyDefaultFilter = false;
-    if (this.filterBySite || this.filterByPlant || this.filterByCustomer) {
-      this.tableColumns = this.tableColumns.map((column) => {
-        if (this.filterBySite) {
-          if (column.field === 'access') {
-            anyDefaultFilter = true;
-            column.selectedValue = this.filterBySite;
-            column.prefilledFilter = true;
-            this.getSitesSuggestions(column, { page: 0, property: 'siteName', value: '', isGetAllRequest: true }, true);
-          }
-        }
-        if (this.filterByPlant) {
-          if (column.field === 'plants') {
-            anyDefaultFilter = true;
-            column.selectedValue = this.filterByPlant;
-            column.prefilledFilter = true;
-            this.getPlansSuggestions(column, { page: 0, property: 'plantName', value: '', isGetAllRequest: true }, true);
-          }
-        }
-        if (this.filterByCustomer) {
-          if (column.field === 'customer') {
-            anyDefaultFilter = true;
-            column.selectedValue = this.filterByCustomer;
-            column.prefilledFilter = true;
-            this.getCustomersSuggestions(column, { page: 0, property: 'customerName', value: '' }, true);
-          }
-        }
-        return column;
-      });
-    }
-    if (!anyDefaultFilter) {
-      this.getDropdownOptions();
-    }
+      monitorGroupsColumns42QAdmin : monitorGroupsColumnsSite;
+    this.setDefaultFilters();
+    this.setAvailableFilters();
   }
 
   getDropdownOptions() {
@@ -171,10 +118,65 @@ export class MonitorGroupListComponent implements OnInit {
     this.availableFilters = this.tableColumns.filter((column) => column.field !== 'loginId' && column.field !== 'userName');
   }
 
-  onLazyLoad(lazyEventData: HomeCardModel) {
-    // console.log('onLazyLoad ...' + JSON.stringify(data));
-    // this.totalRecords = 1;
-    // this.tableData.push({a: '1', b: '2'});
+  onLazyLoad(lazyEventData: { searchRequest: any, table: CustomizedTableComponent }) {
+    // this.getDataSearchRequest();
+    this.monitorGroupsTable = lazyEventData.table;
+    this.getMonitorGroupDataSearchRequest(lazyEventData);
+  }
+
+  getData(url: string, searchRequest) {
+    return this.httpClient.post(url, searchRequest, {
+      observe: 'response'
+    });
+  }
+
+  getMonitorGroupDataSearchRequest(lazyEventData: { searchRequest: any, table: CustomizedTableComponent }) {
+    /*this.monitorGroupListSubscription = this.monitorGroupService.getMonitorGroups().subscribe(value => {
+      console.log(JSON.stringify(value));
+      // const response = data.body as DataTableResponse;
+      // debugger;
+      this.tableData.push(value);
+    });*/
+    this.monitorGroupListSubscription = this.getData(lazyEventData.table.dataUrl, lazyEventData.searchRequest).subscribe(
+      (data) => {
+        const monitorGroupsList = data.body as MonitorGroupsList;
+        this.totalRecords = this.getTotalRecords(monitorGroupsList.hasMoreElements, lazyEventData.searchRequest);
+        this.tableData = monitorGroupsList.dtoList;
+      },
+      () => {
+        const toastTitle = this.translateService.instant('general.error.system-error');
+        const toastMessage = this.translateService.instant('general.error.retrieve-data');
+        // this.showToaster(toastTitle, toastMessage);
+        // this.showLoading = false;
+      }
+    );
+    //     (data) => {
+    //         const response = data.body as DataTableResponse;
+    //         if (!this.staticTable) {
+    //             if (this.selectedRows && this.selectedRows.length > 0) {
+    //                 this.selectedRows = this.replaceSelectedRowsWithNewData(response.dtoList);
+    //             }
+    //             this.getSavedTableSettings();
+    //         } else {
+    //             this.selectedFilters = this.availableFilters;
+    //             this.displayedColumns = this.tableColumns;
+    //         }
+    //         this.lazyLoad.emit({ records: data, searchRequest });
+    //         this.showLoading = false;
+    //     },
+    //     () => {
+    //         const toastTitle = this.translateService.instant('general.error.system-error');
+    //         const toastMessage = this.translateService.instant('general.error.retrieve-data');
+    //         this.showToaster(toastTitle, toastMessage);
+    //         this.showLoading = false;
+    //     }
+    // );
+  }
+
+  private getTotalRecords(hasMoreElements, searchRequest) {
+    return hasMoreElements
+      ? (searchRequest.paginationDirectives.page + 1) * searchRequest.paginationDirectives.size + 1
+      : (searchRequest.paginationDirectives.page + 1) * searchRequest.paginationDirectives.size;
   }
 
   handleSelectedAction(event) {

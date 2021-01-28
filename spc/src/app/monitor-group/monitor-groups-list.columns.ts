@@ -123,7 +123,7 @@ export let monitorGroupsColumns42QAdmin: Array<Column> = [
 export let monitorGroupsColumnsSite: Array<Column> = [
   {
     header: 'monitor-groups-list.position',
-    field: 'position',
+    field: 'id',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'monitor-groups-list.search-by-name-or-login',
@@ -134,14 +134,14 @@ export let monitorGroupsColumnsSite: Array<Column> = [
   },
   {
     header: 'monitor-groups-list.name',
-    field: 'userName',
+    field: 'name',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
     header: 'monitor-groups-list.email',
-    field: 'email',
+    field: 'src',
     filterType: 'inputFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'monitor-groups-list.search-by-email',
@@ -149,7 +149,7 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     autofocus: false,
     sortDisabled: false
   },
-  {
+  /*{
     header: 'monitor-groups-list.status',
     field: 'active',
     isBoolean: true,
@@ -217,5 +217,5 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
-  }
+  }*/
 ];
