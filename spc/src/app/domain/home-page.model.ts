@@ -10,7 +10,7 @@ export class HomePageModelBuilder {
   constructor() {
   }
 
-  homePageModel(
+  private static homePageModel(
     isSpcHomePage: boolean,
     isMonitorGroupHomePage: boolean,
     isMonitorHomePage: boolean,
@@ -24,19 +24,23 @@ export class HomePageModelBuilder {
     };
   }
 
+  public getDefaultHomePageModel(): HomePageModel {
+    return HomePageModelBuilder.homePageModel(true, false, false, false);
+  }
+
   public getSpcHomePageModel(): HomePageModel {
-    return this.homePageModel(true, false, false, false);
+    return HomePageModelBuilder.homePageModel(true, false, false, false);
   }
 
   public getMonitorGroupHomePageModel(): HomePageModel {
-    return this.homePageModel(false, true, false, false);
+    return HomePageModelBuilder.homePageModel(false, true, false, false);
   }
 
   public getMonitorHomePageModel(): HomePageModel {
-    return this.homePageModel(false, false, true, false);
+    return HomePageModelBuilder.homePageModel(false, false, true, false);
   }
 
   public getChartHomePageModel(): HomePageModel {
-    return this.homePageModel(false, false, false, true);
+    return HomePageModelBuilder.homePageModel(false, false, false, true);
   }
 }
