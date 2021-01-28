@@ -122,8 +122,8 @@ export let monitorGroupsColumns42QAdmin: Array<Column> = [
 
 export let monitorGroupsColumnsSite: Array<Column> = [
   {
-    header: 'monitor-groups-list.position',
-    field: 'id',
+    header: 'spc.monitor-groups-list.group-name',
+    field: 'name',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'monitor-groups-list.search-by-name-or-login',
@@ -133,15 +133,15 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     sortDisabled: false
   },
   {
-    header: 'monitor-groups-list.name',
-    field: 'name',
+    header: 'spc.monitor-groups-list.data-source-type',
+    field: 'datasourceType',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'monitor-groups-list.email',
-    field: 'src',
+    header: 'spc.monitor-groups-list.sfdc-timezone',
+    field: 'sfdcTimezone',
     filterType: 'inputFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'monitor-groups-list.search-by-email',
@@ -149,73 +149,18 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     autofocus: false,
     sortDisabled: false
   },
-  /*{
-    header: 'monitor-groups-list.status',
-    field: 'active',
-    isBoolean: true,
-    isTrueLabel: 'Active',
-    isFalseLabel: 'Inactive',
-    filterType: 'searchableDropdownFilter',
-    placeholder: 'monitor-groups-list.status',
-    filterMatchMode: 'EQUAL',
-    optionLabel: 'name',
-    uniqueKey: 'value',
-    filterPlaceholder: 'monitor-groups-list.status-filter-placeholder',
+  {
+    header: 'spc.monitor-groups-list.net-user-id',
+    field: 'netUserId',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'monitor-groups-list.user-type',
-    field: 'userType',
-    fieldIsKey: true,
-    objectKeysValues: [
-        { key: UserDetailsType.FEDERATED, label: 'monitor-groups-list.federated', addClass: 'active-user' },
-        {
-            key: UserDetailsType.NONFEDERATED,
-            label: 'monitor-groups-list.non-federated',
-            addClass: 'inactive-user'
-        }
-    ],
-    filterType: 'searchableDropdownFilter',
-    placeholder: 'monitor-groups-list.user-type',
-    filterMatchMode: 'EQUAL',
-    optionLabel: 'name',
-    uniqueKey: 'value',
-    filterPlaceholder: 'monitor-groups-list.user-type-filter-placeholder',
+    header: 'spc.monitor-groups-list.mds-url',
+    field: 'mdsUrl',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
-  {
-    header: 'monitor-groups-list.tags',
-    field: 'tags',
-    isArrayOfObjects: true,
-    fieldKey: 'name',
-    addClass: 'tag',
-    placeholder: 'general.label.search',
-    filterType: 'searchableDropdownFilter',
-    uniqueKey: 'id',
-    filterMatchMode: 'IN',
-    optionLabel: 'name',
-    filterPlaceholder: 'monitor-groups-list.tags-filter-placeholder',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false
-  },
-  {
-    header: 'monitor-groups-list.profile',
-    field: 'profiles',
-    isArrayOfObjects: true,
-    fieldKey: 'profileName',
-    placeholder: 'monitor-groups-list.profiles',
-    filterType: 'searchableDropdownFilter',
-    uniqueKey: 'id',
-    filterMatchMode: 'IN',
-    optionLabel: 'profileName',
-    filterPlaceholder: 'monitor-groups-list.profile-filter-placeholder',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false
-  }*/
 ];

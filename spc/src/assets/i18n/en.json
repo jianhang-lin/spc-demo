@@ -1,9 +1,11 @@
 {
-  "i18ntest":"Test Project For i18n",
-  "hello": "Hello World !",
-  "author":"author: {{value}}",
-  "language":"language",
-  "header": {
-    "author": "Default.W"
+  "spc": {
+    "monitor-groups-list": {
+      "group-name": "Group Name",
+      "data-source-type": "Data Source Type",
+      "sfdc-timezone": "Shop Floor Timezone",
+      "net-user-id": "Shop Floor ID",
+      "mds-url": "MDS URL/SFDC Web Service URL"
+    }
   }
 }
