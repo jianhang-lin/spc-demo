@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { HomePageModel, HomePageModelBuilder } from './domain/home-page.model';
+import { Subscription } from 'rxjs';
 import { HomeService } from './services/home.service';
+import { HomePageModel, HomePageModelBuilder } from './domain/home-page.model';
 
 @Component({
   selector: 'spc-root',
@@ -11,6 +12,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   title = 'This is SPC Project';
   homePage: HomePageModel;
 
+  currentHomePageSubscription: Subscription;
+  monitorGroupListSubscription: Subscription;
   constructor(
     private homeService: HomeService,
   ) {
@@ -18,12 +21,18 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
     this.initDefaultHomePage();
-    this.homeService.currentHomePageSubject.subscribe(currentHomePage => {
+    this.currentHomePageSubscription = this.homeService.currentHomePageSubject.subscribe(currentHomePage => {
       this.homePage = currentHomePage;
     });
   }
 
   ngOnDestroy(): void {
+    if (this.currentHomePageSubscription) {
+      this.currentHomePageSubscription.unsubscribe();
+    }
+    if (this.monitorGroupListSubscription) {
+      this.monitorGroupListSubscription.unsubscribe();
+    }
   }
 
   ngAfterViewInit(): void {
