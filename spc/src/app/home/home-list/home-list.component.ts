@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HomeService } from '../../services/home.service';
 import { HomeCardModel } from '../../domain/home-card.model';
 import { Router } from '@angular/router';
+import { HomePageModelBuilder } from '../../domain/home-page.model';
 
 @Component({
   selector: 'spc-home-list',
@@ -11,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class HomeListComponent implements OnInit {
 
+  @Output() doSelected = new EventEmitter<void>();
   isEnterSpcCard: boolean;
   enterSpcCardIndex: number;
   homeCards$: Observable<HomeCardModel[]>;
-  listAnim$: Observable<number>;
   constructor(private router: Router,
               private homeService: HomeService) { }
 
@@ -30,10 +31,7 @@ export class HomeListComponent implements OnInit {
   selectHomeCard(index: number) {
     const communityId = 10418;
     if (index === this.enterSpcCardIndex) {
-      this.isEnterSpcCard = true;
-      this.router.navigate(['/spc/monitor_groups']).then(() => {
-        // do something
-      });
+      this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getMonitorGroupHomePageModel());
     }
   }
 }
