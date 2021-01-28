@@ -1,5 +1,6 @@
 {
   "spc": {
+    "title": "SPC项目",
     "monitor-groups-list": {
       "group-name": "组名",
       "data-source-type": "数据源类型",

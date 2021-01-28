@@ -1,5 +1,6 @@
 {
   "spc": {
+    "title": "SPC project",
     "monitor-groups-list": {
       "group-name": "Group Name",
       "data-source-type": "Data Source Type",

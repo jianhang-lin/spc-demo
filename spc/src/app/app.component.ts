@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { HomeService } from './services/home.service';
 import { HomePageModel, HomePageModelBuilder } from './domain/home-page.model';
+
 
 @Component({
   selector: 'spc-root',
@@ -15,8 +17,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   currentHomePageSubscription: Subscription;
   monitorGroupListSubscription: Subscription;
   constructor(
+    private translateService: TranslateService,
     private homeService: HomeService,
   ) {
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 
   ngOnInit(): void {

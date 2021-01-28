@@ -56,8 +56,8 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
     private translateService: TranslateService,
     private monitorGroupService: MonitorGroupService,
   ) {
-    this.translateService.setDefaultLang('zh');
-    this.translateService.use('zh');
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 
   ngOnInit() {
