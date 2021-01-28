@@ -6,6 +6,8 @@ import { assetUrl } from '../../single-spa/asset-url';
 @Injectable()
 export class MonitorGroupService {
 
+  private is42qSite: boolean;
+
   constructor() {}
 
   getMonitorGroups(): Observable<any[]> {
@@ -19,5 +21,13 @@ export class MonitorGroupService {
       {id: 6, src: `${imgUrl}/SPCwelcome_enter.png`},
     ];
     return of(homeCards);
+  }
+
+  getIs42qSite(): boolean {
+    return this.is42qSite;
+  }
+
+  setIs42qSite(value: boolean) {
+    this.is42qSite = value;
   }
 }
