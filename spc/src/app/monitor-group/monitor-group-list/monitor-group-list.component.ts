@@ -297,11 +297,11 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
     this.bulkUploadButton.nativeElement.focus();
   }
 
-  onGoToMonitor($event: MouseEvent) {
+  onGoToFunctionPage($event: MouseEvent) {
     this.confirmationService.confirm({
-      message: 'Are you sure you want go to monitor list page?',
+      message: 'Are you sure you want go to function page?',
       accept: () => {
-        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getMonitorHomePageModel());
+        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getFuncitonHomePageModel());
       },
       reject: () => {
       }
