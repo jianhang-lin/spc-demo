@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { Column } from 'shared-ui';
 import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
+import { ConfirmationService } from 'primeng/api';
+import { HomeService } from '../../services/home.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
 import { monitorGroupsColumns42QAdmin, monitorGroupsColumnsSite } from '../monitor-groups-list.columns';
 import {
@@ -15,6 +17,7 @@ import {
 } from '../monitor-group-table-actions';
 import { Customer } from '../../domain/list-user.model';
 import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
+import {HomePageModelBuilder} from "../../domain/home-page.model";
 
 export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
@@ -54,6 +57,8 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
   constructor(
     private httpClient: HttpClient,
     private translateService: TranslateService,
+    private confirmationService: ConfirmationService,
+    private homeService: HomeService,
     private monitorGroupService: MonitorGroupService,
   ) {
     this.translateService.setDefaultLang('en');
@@ -290,5 +295,16 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
 
   onBlurMoreButton() {
     this.bulkUploadButton.nativeElement.focus();
+  }
+
+  onGoToMonitor($event: MouseEvent) {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want go to monitor list page?',
+      accept: () => {
+        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getMonitorHomePageModel());
+      },
+      reject: () => {
+      }
+    });
   }
 }

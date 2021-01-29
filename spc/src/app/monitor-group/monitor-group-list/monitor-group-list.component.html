@@ -25,6 +25,10 @@
     (changeAutocompleteFilter)="onChangeAutocompleteFilter($event)"
     (onGetTableSettings)="getSelectedFilters($event)"
     (moreButtonBlur)="onBlurMoreButton()"
+    (dblclick)="onGoToMonitor($event)"
   ></app-customized-table>
+
+  <app-customized-toast></app-customized-toast>
+  <app-customized-confirmation-popup></app-customized-confirmation-popup>
 </ng-container>
 

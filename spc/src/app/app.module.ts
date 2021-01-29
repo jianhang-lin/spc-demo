@@ -20,6 +20,7 @@ import { MonitorHomeComponent } from './monitor/monitor-home/monitor-home.compon
 import { ChartHomeComponent } from './chart/chart-home/chart-home.component';
 import { CardComponent } from './shared/card/card.component';
 import { SpcTranslationService } from './services/spc-translation.service';
+import { ConfirmationService } from 'primeng/api';
 import { HomeService } from './services/home.service';
 import { MonitorGroupService } from './services/monitor-group.service';
 import { MonitorService } from './services/monitor.service';
@@ -66,6 +67,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     })
   ],
   providers: [
+    ConfirmationService,
     HomeService,
     MonitorGroupService,
     MonitorService,
