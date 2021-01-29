@@ -9,6 +9,19 @@
       "mds-url": "MDS地址/SFDC网页服务地址",
       "icon": "图标",
       "search-by-group-name": "根据组名查询"
+    },
+    "monitors-list": {
+      "monitor-name": "监控名",
+      "monitor-type": "监控类型",
+      "monitor-short-name": "工位|进程|工位族",
+      "part-number-family-id": "产品编码|族编码",
+      "grouping-type": "按组",
+      "collection-type": "收集类型",
+      "monitor-status": "状态",
+      "batch-id": "批次编号",
+      "update-time": "更新时间",
+      "update-by": "更新者",
+      "more": "更多..."
     }
   },
   "general": {

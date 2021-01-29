@@ -122,7 +122,7 @@ export let monitorsColumns42QAdmin: Array<Column> = [
 
 export let monitorsColumnsSite: Array<Column> = [
   {
-    header: 'spc.monitors-list.group-name',
+    header: 'spc.monitors-list.monitor-name',
     field: 'name',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
@@ -133,38 +133,72 @@ export let monitorsColumnsSite: Array<Column> = [
     sortDisabled: false
   },
   {
-    header: 'spc.monitors-list.data-source-type',
+    header: 'spc.monitors-list.monitor-type',
     field: 'datasourceType',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.monitors-list.sfdc-timezone',
+    header: 'spc.monitors-list.monitor-short-name',
     field: 'sfdcTimezone',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.monitors-list.net-user-id',
+    header: 'spc.monitors-list.part-number-family-id',
     field: 'netUserId',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.monitors-list.mds-url',
+    header: 'spc.monitors-list.grouping-type',
     field: 'mdsUrl',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.monitors-list.icon',
+    header: 'spc.monitors-list.collection-type',
     field: 'monitorGroupListIcon',
     isDisplayed: true,
-    isImage: true,
+    autofocus: false,
+    sortDisabled: false,
+  },
+  {
+    header: 'spc.monitors-list.monitor-status',
+    field: 'monitorGroupListIcon',
+    isDisplayed: true,
+    autofocus: false,
+    sortDisabled: false,
+  },
+  {
+    header: 'spc.monitors-list.batch-id',
+    field: 'monitorGroupListIcon',
+    isDisplayed: true,
+    autofocus: false,
+    sortDisabled: false,
+  },
+  {
+    header: 'spc.monitors-list.update-time',
+    field: 'monitorGroupListIcon',
+    isDisplayed: true,
+    autofocus: false,
+    sortDisabled: false,
+  },
+  {
+    header: 'spc.monitors-list.update-by',
+    field: 'monitorGroupListIcon',
+    isDisplayed: true,
+    autofocus: false,
+    sortDisabled: false,
+  },
+  {
+    header: 'spc.monitors-list.more',
+    field: 'monitorGroupListIcon',
+    isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },

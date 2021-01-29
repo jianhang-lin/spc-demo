@@ -11,10 +11,10 @@ import { Column } from 'shared-ui';
 import { Customer } from '../../domain/list-user.model';
 import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
 import {
-  monitorGroupsEnableActionsRules, monitorGroupsEnableActionsRules42Q, monitorGroupsEnableActionsRulesSite,
-  monitorGroupsTableActions
-} from '../../monitor-group/monitor-group-table-actions';
-import { monitorGroupsColumns42QAdmin, monitorGroupsColumnsSite } from '../../monitor-group/monitor-groups-list.columns';
+  monitorsEnableActionsRules, monitorsEnableActionsRules42Q, monitorsEnableActionsRulesSite,
+  monitorsTableActions
+} from '../../monitor/monitor-table-actions';
+import { monitorsColumns42QAdmin, monitorsColumnsSite } from '../../monitor/monitors-list.columns';
 import { UserDetailsType } from '../../monitor-group/monitor-group-list/monitor-group-list.component';
 import { HomePageModelBuilder } from '../../domain/home-page.model';
 
@@ -42,8 +42,8 @@ export class MonitorListComponent implements OnInit, AfterViewInit {
   availableFilters: Array<Column> = [];
   loggedUserDetails: any;
   loggedCustomer: Customer;
-  enableActionsRules = monitorGroupsEnableActionsRules;
-  availableTableActions = monitorGroupsTableActions;
+  enableActionsRules = monitorsEnableActionsRules;
+  availableTableActions = monitorsTableActions;
   filterBySite;
   filterByPlant;
   filterByCustomer;
@@ -70,10 +70,10 @@ export class MonitorListComponent implements OnInit, AfterViewInit {
     this.loggedUserDetails = JSON.parse(window.localStorage.getItem('user'));
     this.is42qAdmin = isNull(this.loggedUserDetails) ? false : this.loggedUserDetails.is42QAdmin;
     this.is42qSite = JSON.parse(window.localStorage.getItem('IS_42Q_SITE'));
-    this.enableActionsRules = this.is42qSite ? monitorGroupsEnableActionsRules42Q : monitorGroupsEnableActionsRulesSite;
+    this.enableActionsRules = this.is42qSite ? monitorsEnableActionsRules42Q : monitorsEnableActionsRulesSite;
     this.monitorGroupService.setIs42qSite(this.is42qSite);
     this.tableColumns = this.is42qAdmin && this.is42qSite ?
-      monitorGroupsColumns42QAdmin : monitorGroupsColumnsSite;
+      monitorsColumns42QAdmin : monitorsColumnsSite;
     this.setDefaultFilters();
     this.setAvailableFilters();
   }

@@ -9,6 +9,19 @@
       "mds-url": "MDS URL/SFDC Web Service URL",
       "icon": "icon",
       "search-by-group-name": "Search by group name"
+    },
+    "monitors-list": {
+      "monitor-name": "Monitor Name",
+      "monitor-type": "Monitor Type",
+      "monitor-short-name": "Location|Process|Location Family",
+      "part-number-family-id": "Part Number|Family ID",
+      "grouping-type": "Group By",
+      "collection-type": "Collection Type",
+      "monitor-status": "Status",
+      "batch-id": "BatchId",
+      "update-time": "UpdateTime",
+      "update-by": "Update By",
+      "more": "More..."
     }
   },
   "general": {
