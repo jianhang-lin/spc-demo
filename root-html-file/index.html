@@ -7,10 +7,10 @@
     <title>Spc demo application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="importmap-type" content="systemjs-importmap">
+    <!--"app1": "http://localhost:4201/main.js",-->
     <script type="systemjs-importmap">
       {
         "imports": {
-          "app1": "http://localhost:4201/main.js",
           "spc": "http://localhost:4203/main.js",
           "navbar": "http://localhost:4300/main.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
@@ -32,9 +32,9 @@
           <application name="navbar"></application>
         </nav>
         <div class="main-content">
-          <route path="app1">
+          <!--<route path="app1">
             <application name="app1"></application>
-          </route>
+          </route>-->
           <route path="spc">
             <application name="spc"></application>
           </route>
