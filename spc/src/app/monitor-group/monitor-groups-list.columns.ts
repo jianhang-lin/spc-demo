@@ -126,7 +126,7 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     field: 'name',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
-    placeholder: 'monitor-groups-list.search-by-name-or-login',
+    placeholder: 'spc.monitor-groups-list.search-by-group-name',
     isGlobal: true,
     isDisplayed: true,
     autofocus: true,
@@ -142,9 +142,6 @@ export let monitorGroupsColumnsSite: Array<Column> = [
   {
     header: 'spc.monitor-groups-list.sfdc-timezone',
     field: 'sfdcTimezone',
-    filterType: 'inputFilter',
-    filterMatchMode: 'LIKE',
-    placeholder: 'monitor-groups-list.search-by-email',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
@@ -162,5 +159,13 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
+  },
+  {
+    header: 'spc.monitor-groups-list.icon',
+    field: 'monitorGroupListIcon',
+    isDisplayed: true,
+    isImage: true,
+    autofocus: false,
+    sortDisabled: false,
   },
 ];
