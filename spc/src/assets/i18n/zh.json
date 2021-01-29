@@ -6,7 +6,9 @@
       "data-source-type": "数据源类型",
       "sfdc-timezone": "车间时区",
       "net-user-id": "车间编号",
-      "mds-url": "MDS地址/SFDC网页服务地址"
+      "mds-url": "MDS地址/SFDC网页服务地址",
+      "icon": "图标",
+      "search-by-group-name": "根据组名查询"
     }
   },
   "general": {

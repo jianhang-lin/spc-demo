@@ -6,7 +6,9 @@
       "data-source-type": "Data Source Type",
       "sfdc-timezone": "Shop Floor Timezone",
       "net-user-id": "Shop Floor ID",
-      "mds-url": "MDS URL/SFDC Web Service URL"
+      "mds-url": "MDS URL/SFDC Web Service URL",
+      "icon": "icon",
+      "search-by-group-name": "Search by group name"
     }
   },
   "general": {
