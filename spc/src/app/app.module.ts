@@ -17,6 +17,7 @@ import { MonitorGroupListComponent } from './monitor-group/monitor-group-list/mo
 import { FunctionHomeComponent } from './function/function-home/function-home.component';
 import { FunctionListComponent } from './function/function-list/function-list.component';
 import { MonitorHomeComponent } from './monitor/monitor-home/monitor-home.component';
+import { MonitorListComponent } from './monitor/monitor-list/monitor-list.component';
 import { ChartHomeComponent } from './chart/chart-home/chart-home.component';
 import { CardComponent } from './shared/card/card.component';
 import { SpcTranslationService } from './services/spc-translation.service';
@@ -45,6 +46,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     FunctionHomeComponent,
     FunctionListComponent,
     MonitorHomeComponent,
+    MonitorListComponent,
     ChartHomeComponent,
   ],
   imports: [
