@@ -24,6 +24,7 @@ import { SpcTranslationService } from './services/spc-translation.service';
 import { ConfirmationService } from 'primeng/api';
 import { HomeService } from './services/home.service';
 import { MonitorGroupService } from './services/monitor-group.service';
+import { FunctionService } from './services/function.service';
 import { MonitorService } from './services/monitor.service';
 import { ChartService } from './services/chart.service';
 import { SpcTranslateLoaderModel } from './domain/spc-translate-loader.model';
@@ -72,6 +73,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     ConfirmationService,
     HomeService,
     MonitorGroupService,
+    FunctionService,
     MonitorService,
     ChartService,
   ],

@@ -1,0 +1,10 @@
+$theme: default;
+@import '/home/grant/Web/spc-demo/spc/node_modules/shared-ui/shared-scss/scss/dependencies';
+
+.spc-function-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

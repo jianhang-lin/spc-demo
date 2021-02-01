@@ -1,1 +1,13 @@
-<p>function-list works!</p>
+<div class="spc-function-container">
+  <div *ngFor="let functionCard of (functionCards$ | async); let i = index">
+    <app-customized-card-item
+      [sizeClass]="'large'"
+      [url]="functionCard.url"
+      [backgroundColor]="'C0C0C0'"
+      [name]="functionCard.id"
+      [description]="functionCard.desc"
+      [icon]="functionCard.icon"
+    ></app-customized-card-item>
+  </div>
+</div>
+
