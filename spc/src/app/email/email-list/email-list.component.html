@@ -1,1 +1,33 @@
-<p>email-list works!</p>
+<ng-container>
+  <app-customized-table
+    #monitorGroupsTable
+    [data]="tableData"
+    dataUrl="http://localhost:8080/monitor-groups/38865/monitors/communityId?communityId=10418"
+    tableSettingsSaveUrl="/user-administration/table-settings/settings"
+    getTableSettingsUrl="/user-administration/table-settings/users"
+    tableName="monitorGroups"
+    exportUrl="/user-administration/users/export"
+    defaultSortField="userName"
+    [resizableColumns]="true"
+    [tableColumns]="tableColumns"
+    [reorderableColumns]="true"
+    [globalFilterFields]="['loginId', 'userName']"
+    [totalRecords]="totalRecords"
+    [defaultFilters]="defaultFilters"
+    [availableFilters]="availableFilters"
+    [enableActionsRules]="enableActionsRules"
+    [availableActions]="availableTableActions"
+    [alwaysShowPaginator]="true"
+    [defaultSortOrder]="1"
+    (actionSelected)="handleSelectedAction($event)"
+    (lazyLoad)="onLazyLoad($event)"
+    (selectFilterColumns)="getSelectedFilters($event)"
+    (changeAutocompleteFilter)="onChangeAutocompleteFilter($event)"
+    (onGetTableSettings)="getSelectedFilters($event)"
+    (moreButtonBlur)="onBlurMoreButton()"
+    (dblclick)="onGoToMonitor($event)"
+  ></app-customized-table>
+
+  <app-customized-toast></app-customized-toast>
+  <app-customized-confirmation-popup></app-customized-confirmation-popup>
+</ng-container>
