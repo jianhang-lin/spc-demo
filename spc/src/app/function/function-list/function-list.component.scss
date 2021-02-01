@@ -2,9 +2,17 @@ $theme: default;
 @import '/home/grant/Web/spc-demo/spc/node_modules/shared-ui/shared-scss/scss/dependencies';
 
 .spc-function-container {
+  display: -webkit-flex; /* Safari */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.spc-function-card {
+  height: 110px;
+  flex: 0 0 25.5%;
+  margin: 10px;
+  display: flex;
 }
