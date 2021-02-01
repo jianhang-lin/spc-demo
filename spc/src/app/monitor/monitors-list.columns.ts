@@ -123,7 +123,7 @@ export let monitorsColumns42QAdmin: Array<Column> = [
 export let monitorsColumnsSite: Array<Column> = [
   {
     header: 'spc.monitors-list.monitor-name',
-    field: 'name',
+    field: 'monitorName',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'spc.monitor-groups-list.search-by-group-name',
@@ -134,63 +134,63 @@ export let monitorsColumnsSite: Array<Column> = [
   },
   {
     header: 'spc.monitors-list.monitor-type',
-    field: 'datasourceType',
+    field: 'monitorType',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
     header: 'spc.monitors-list.monitor-short-name',
-    field: 'sfdcTimezone',
+    field: 'monitorShortName',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
     header: 'spc.monitors-list.part-number-family-id',
-    field: 'netUserId',
+    field: 'partNumber',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
     header: 'spc.monitors-list.grouping-type',
-    field: 'mdsUrl',
+    field: 'groupingType',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
     header: 'spc.monitors-list.collection-type',
-    field: 'monitorGroupListIcon',
+    field: 'dataSource',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
     header: 'spc.monitors-list.monitor-status',
-    field: 'monitorGroupListIcon',
+    field: 'monitorStatus',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
     header: 'spc.monitors-list.batch-id',
-    field: 'monitorGroupListIcon',
+    field: 'batchId',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
     header: 'spc.monitors-list.update-time',
-    field: 'monitorGroupListIcon',
+    field: 'updateTime',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
     header: 'spc.monitors-list.update-by',
-    field: 'monitorGroupListIcon',
+    field: 'updateBy',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
