@@ -22,6 +22,19 @@
       "update-time": "UpdateTime",
       "update-by": "Update By",
       "more": "More..."
+    },
+    "emails-list": {
+      "name": "Name",
+      "description": "Description",
+      "shop-floor-id": "Shop Floor ID",
+      "part-number": "Part Number",
+      "process": "Process",
+      "location": "Location",
+      "family-id": "Family ID",
+      "location-family": "Location Family",
+      "monitor-group": "Monitor Group",
+      "email-group": "Email Group",
+      "status": "Status"
     }
   },
   "general": {

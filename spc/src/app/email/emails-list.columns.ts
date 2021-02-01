@@ -122,8 +122,8 @@ export let emailsColumns42QAdmin: Array<Column> = [
 
 export let emailsColumnsSite: Array<Column> = [
   {
-    header: 'spc.emails-list.monitor-name',
-    field: 'monitorName',
+    header: 'spc.emails-list.name',
+    field: 'name',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'spc.monitor-groups-list.search-by-group-name',
@@ -133,71 +133,71 @@ export let emailsColumnsSite: Array<Column> = [
     sortDisabled: false
   },
   {
-    header: 'spc.emails-list.monitor-type',
-    field: 'monitorType',
+    header: 'spc.emails-list.description',
+    field: 'description',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.emails-list.monitor-short-name',
-    field: 'monitorShortName',
+    header: 'spc.emails-list.shop-floor-id',
+    field: 'shopFloorId',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.emails-list.part-number-family-id',
-    field: 'partNumber',
+    header: 'spc.emails-list.part-number',
+    field: 'part',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.emails-list.grouping-type',
-    field: 'groupingType',
+    header: 'spc.emails-list.process',
+    field: 'process',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.emails-list.collection-type',
-    field: 'dataSource',
+    header: 'spc.emails-list.location',
+    field: 'workstation',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
-    header: 'spc.emails-list.monitor-status',
-    field: 'monitorStatus',
+    header: 'spc.emails-list.family-id',
+    field: 'partFamilyId',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
-    header: 'spc.emails-list.batch-id',
-    field: 'batchId',
+    header: 'spc.emails-list.location-family',
+    field: 'locationFamilyName',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
-    header: 'spc.emails-list.update-time',
-    field: 'updateTime',
+    header: 'spc.emails-list.monitor-group',
+    field: 'monitorGroupName',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
-    header: 'spc.emails-list.update-by',
-    field: 'updateBy',
+    header: 'spc.emails-list.email-group',
+    field: 'emailGroupName',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,
   },
   {
-    header: 'spc.emails-list.more',
-    field: 'monitorGroupListIcon',
+    header: 'spc.emails-list.status',
+    field: 'status',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false,

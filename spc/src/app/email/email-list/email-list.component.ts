@@ -9,7 +9,7 @@ import { HomeService } from '../../services/home.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
 import { Column } from 'shared-ui';
 import { Customer } from '../../domain/list-user.model';
-import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
+import { EmailReceiveRuleList } from '../../domain/email-receive-rule-list.model';
 import {
   emailsEnableActionsRules, emailsEnableActionsRules42Q, emailsEnableActionsRulesSite,
   emailsTableActions
@@ -18,7 +18,6 @@ import { emailsColumns42QAdmin, emailsColumnsSite } from '../../email/emails-lis
 import { UserDetailsType } from '../../monitor-group/monitor-group-list/monitor-group-list.component';
 import { HomePageModelBuilder } from '../../domain/home-page.model';
 
-
 @Component({
   selector: 'spc-email-list',
   templateUrl: './email-list.component.html',
@@ -26,7 +25,7 @@ import { HomePageModelBuilder } from '../../domain/home-page.model';
 })
 export class EmailListComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('monitorGroupsTable', { static: false }) monitorGroupsTable: CustomizedTableComponent;
+  @ViewChild('emailsTable', { static: false }) emailsTable: CustomizedTableComponent;
   @ViewChild('bulkUploadButton', { static: false }) bulkUploadButton: ElementRef;
   tableData = [];
   tableColumns = [];
@@ -48,7 +47,7 @@ export class EmailListComponent implements OnInit, AfterViewInit {
   filterBySite;
   filterByPlant;
   filterByCustomer;
-  monitorGroupListSubscription: Subscription;
+  emailListSubscription: Subscription;
   constructor(
     private httpClient: HttpClient,
     private translateService: TranslateService,
@@ -106,7 +105,7 @@ export class EmailListComponent implements OnInit, AfterViewInit {
 
   onLazyLoad(lazyEventData: { searchRequest: any, table: CustomizedTableComponent }) {
     // this.getDataSearchRequest();
-    this.monitorGroupsTable = lazyEventData.table;
+    this.emailsTable = lazyEventData.table;
     this.getMonitorGroupDataSearchRequest(lazyEventData);
   }
 
@@ -117,11 +116,11 @@ export class EmailListComponent implements OnInit, AfterViewInit {
       // debugger;
       this.tableData.push(value);
     });*/
-    this.monitorGroupListSubscription = this.getData(lazyEventData.table.dataUrl, lazyEventData.searchRequest).subscribe(
+    this.emailListSubscription = this.getData(lazyEventData.table.dataUrl, lazyEventData.searchRequest).subscribe(
       (data) => {
-        const monitorGroupsList = data.body as MonitorGroupsList;
-        this.totalRecords = this.getTotalRecords(monitorGroupsList.hasMoreElements, lazyEventData.searchRequest);
-        this.tableData = monitorGroupsList.dtoList;
+        const emailReceiveRulesList = data.body as EmailReceiveRuleList;
+        this.totalRecords = this.getTotalRecords(emailReceiveRulesList.hasMoreElements, lazyEventData.searchRequest);
+        this.tableData = emailReceiveRulesList.dtoList;
       },
       () => {
         const toastTitle = this.translateService.instant('general.error.system-error');
