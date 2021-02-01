@@ -1,9 +1,9 @@
 <div class="spc-function-container">
   <div *ngFor="let functionCard of (functionCards$ | async); let i = index" class="spc-function-card">
     <app-customized-card-item
-      [sizeClass]="'large'"
+      [sizeClass]="'medium'"
       [url]="functionCard.url"
-      [backgroundColor]="'C0C0C0'"
+      [backgroundColor]="'A9A9A9'"
       [name]=""
       [description]="functionCard.desc"
       [icon]="functionCard.icon"
