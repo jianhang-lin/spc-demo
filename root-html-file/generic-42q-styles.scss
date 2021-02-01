@@ -1,0 +1,704 @@
+/* You can add global styles to this file, and also import other style files */
+$theme: default;
+@import 'default';
+@import 'components/widget-configuration';
+
+button {
+    cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: transparentize($light, 0.6);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: transparentize($light, 0.4);
+}
+
+.layout-content {
+    @extend %vh-height;
+    margin-left: $menu-width;
+    position: relative;
+
+    @include media-breakpoint-down(md) {
+        margin-left: 0 !important;
+    }
+
+    .menu--active & {
+        margin-left: 280px;
+    }
+}
+
+#grid {
+    @extend %vh-height;
+    position: relative;
+    grid-template-rows: 60px;
+
+    layout-ui-generic-search-widget-root,
+    layout-ui-notifications-widget-root,
+    layout-ui-favorites-widget-root,
+    layout-ui-recent-items-widget-root {
+        display: block;
+        position: relative;
+    }
+
+    layout-ui-generic-search-widget-root {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    layout-ui-favorites-widget-root {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    layout-ui-notifications-widget-root {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    layout-ui-recent-items-widget-root {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+}
+
+.grid {
+    &-item {
+        text-align: left;
+        min-height: 63px;
+        position: relative;
+    }
+
+    &-footer {
+        @include position(fixed, null 0 0);
+        z-index: $zindex-modal + 1;
+        border-top: 1px solid $light;
+        box-shadow: 0 0 8px 3px transparentize($dark, 0.8);
+
+        .aside-heading {
+            padding: 0 !important;
+        }
+    }
+}
+
+.widget {
+    @include media-breakpoint-up(lg) {
+        @include position(absolute, 0);
+
+        .production-workbench-ui-pwb-toolbar-widget & {
+            z-index: $zindex-modal - 1;
+        }
+    }
+
+    .configuration-set-by-app & {
+        @include media-breakpoint-down(md) {
+            height: auto !important;
+        }
+    }
+
+    height: 100%;
+
+    &-container {
+        background-color: $lighter;
+        border: 1px solid $lighter;
+        padding: $grid-gutter-width / 2;
+        position: relative;
+        height: 100%;
+        overflow: auto;
+
+        .configuration-set-by-app & {
+            @include media-breakpoint-down(md) {
+                height: auto !important;
+            }
+        }
+    }
+
+    &-heading {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 10px;
+
+        .widget-options {
+            @include position(absolute, 0 0 null null);
+            z-index: $zindex-sticky;
+            border: 0 solid transparent;
+            cursor: pointer;
+            background-color: transparent !important;
+            animation: overflow-hidden 0s;
+            animation-fill-mode: forwards;
+            animation-delay: $transition-delay;
+            min-height: 10px;
+            min-width: 10px;
+            &:hover {
+                transition-delay: $transition-delay;
+                max-width: 98%;
+                max-height: none;
+                animation: overflow-visible 0s;
+                animation-delay: $transition-delay;
+                animation-fill-mode: forwards;
+                background-color: $body-bg !important;
+                border-radius: $border-radius-sm;
+                border-color: transparentize($light, 0.8);
+                box-shadow: 0 0 8px 3px transparentize($dark, 0.9);
+
+                .widget-bar {
+                    display: block;
+                    opacity: 1;
+                    margin-bottom: 0;
+                    padding: 8px 8px 5px;
+                    background-color: $body-bg !important;
+
+                    .maximize-minimize {
+                        opacity: 1;
+                    }
+
+                    &:last-of-type {
+                        padding-bottom: 8px;
+                    }
+                }
+                .widget-optionsList {
+                    display: block;
+                }
+            }
+
+            &List {
+                min-width: 140px;
+                background-color: transparent !important;
+                display: none;
+            }
+            .widget-bar {
+                display: none;
+            }
+
+            &:empty {
+                display: none;
+            }
+
+            &Act {
+                @include position(absolute, 0 0 null null);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 10px 0;
+                border-color: transparent $info transparent transparent;
+                cursor: pointer;
+                background-color: transparent !important;
+            }
+
+
+            &--outside {
+                z-index: $zindex-sticky;
+            }
+
+            .aside-content & {
+                .action-remove {
+                    width: 28px;
+                    height: 28px;
+                    top: -3px;
+                    right: 0;
+
+                    span {
+                        line-height: 1.7 !important;
+                        font-weight: 900;
+                    }
+                }
+            }
+
+            p-checkbox {
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+    }
+
+    &-title {
+        color: $light;
+        text-transform: uppercase;
+        font-size: $font-size-base;
+        font-weight: 900;
+    }
+
+    &-refresh {
+        .aside-content & {
+            top: 3px;
+        }
+    }
+
+    &-list {
+        .production-workbench & {
+            @include media-breakpoint-down(md) {
+                height: auto !important;
+            }
+        }
+
+        overflow: hidden;
+        height: auto;
+
+        &Button {
+            @include button($size: $xxs-button-size, $display: block);
+            width: 100%;
+
+            &Container {
+                @include position(absolute, null $grid-gutter-width / 2 65px $grid-gutter-width / 2);
+
+                .production-workbench & {
+                    @include media-breakpoint-down(md) {
+                        bottom: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &-item {
+        background-color: $body-bg;
+        margin-bottom: $grid-gutter-width / 2;
+        padding: 10px 30px 10px 20px;
+        font-size: $font-size-xs;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        border-radius: $border-radius-sm;
+        overflow: hidden;
+
+        &:before {
+            @include position(absolute, 0 null 0 0);
+            content: '';
+            width: 5px;
+        }
+
+        &.is-unsaved {
+            &:before {
+                background-color: transparentize($light, 0.5);
+            }
+        }
+
+        &.is-success {
+            &:before {
+                background-color: $success;
+            }
+        }
+
+        &.is-failed {
+            &:before {
+                background-color: $danger;
+            }
+        }
+
+        &Heading {
+            font-weight: bold;
+            width: 100%;
+        }
+
+        &Column {
+            font-size: $font-size-xxs;
+            color: $light;
+            font-weight: bold;
+            width: 43%;
+
+            &:last-child {
+                width: 14%;
+            }
+
+            label {
+                font-size: $font-size-xxxs;
+                color: transparentize($light, 0.5);
+            }
+        }
+
+        &Order {
+            @include position(absolute, 0 null 0 0);
+            font-size: $font-size-lg;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding-left: $grid-gutter-width / 2;
+        }
+
+        &Actions {
+            @include position(absolute, 10px 10px null null);
+
+            .action {
+                position: relative;
+                background-color: transparent;
+                border: 0;
+                border-radius: 50%;
+                width: $grid-gutter-width / 2;
+                height: $grid-gutter-width / 2;
+                line-height: 1;
+                text-align: center;
+                display: block;
+                font-weight: bold;
+
+                span {
+                    @include position(absolute, 0);
+
+                    &:hover {
+                        color: $body-bg;
+                    }
+                }
+
+                &-remove {
+                    background-color: transparentize($danger, 0.8);
+                    color: $danger;
+
+                    &:hover {
+                        background-color: $danger;
+                    }
+                }
+            }
+        }
+
+        .tag {
+            font-size: $font-size-xxxs;
+            border-radius: $border-radius-sm;
+
+            &-success {
+                background-color: transparentize($success, 0.8);
+                color: $success;
+                padding: 2px 5px;
+                margin: 0 5px 0 0;
+            }
+        }
+
+        &--unitInformation {
+            padding-right: 10px;
+
+            label {
+                display: block;
+            }
+
+            .widget-itemColumn {
+                width: 20%;
+            }
+        }
+
+        &--serialNumber {
+            .widget-itemColumn {
+                width: 50%;
+            }
+        }
+
+        &--orderSeq {
+            padding-left: 60px;
+            padding-right: 0;
+
+            .widget-itemColumn {
+                width: 33.3%;
+                color: $dark;
+            }
+
+            label {
+                display: block;
+            }
+        }
+    }
+
+    &-form {
+        &--operationItem {
+            margin-bottom: $grid-gutter-width * 2 / 3;
+            background-color: $white;
+        }
+
+        label {
+            display: block;
+            font-size: $font-size-xxs;
+            color: transparentize($light, 0.3);
+            text-transform: capitalize;
+        }
+
+        select,
+        input {
+            @include input();
+        }
+
+        &Group {
+            margin-bottom: $grid-gutter-width / 2;
+        }
+
+        &Actions {
+            button {
+                @include button($display: block, $fill-color: $info, $size: $xxs-button-size);
+                width: 100%;
+            }
+        }
+    }
+
+    &--layout {
+        .no-overflow & {
+            overflow: visible !important;
+        }
+
+        .grid-item & {
+            @include position(absolute, 0);
+            text-align: left;
+            padding: 0 $grid-gutter-width / 2 $grid-gutter-width / 2;
+            overflow: auto;
+
+            @include media-breakpoint-down(md) {
+                position: static;
+            }
+
+            &.is-empty {
+                overflow: hidden;
+            }
+        }
+    }
+
+    &--empty {
+        color: $light;
+        margin-top: -$grid-gutter-width;
+    }
+
+    &.is-gray {
+        background-color: $shaded-background-color;
+        padding: $grid-gutter-width / 2 $grid-gutter-width / 2 0;
+    }
+
+    &.is-grayer {
+        background-color: $dark-shaded-background-color;
+    }
+
+    &-bar {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $lighter;
+        opacity: 0;
+        transition-delay: $transition-delay;
+
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        button {
+            span {
+                font-size: $font-size-xxs;
+                color: $dark;
+                padding-left: 10px;
+            }
+        }
+
+        .maximize-minimize {
+            @include icon(expand);
+            width: 18px;
+            height: 18px;
+            padding: 0;
+            opacity: 0;
+            background-color: $dark;
+            color: $body-bg;
+            border-radius: $border-radius-sm;
+            border: 0;
+            white-space: nowrap;
+            transition-delay: $transition-delay;
+
+            &:before {
+                padding-left: 2px;
+                background-color: initial !important;
+            }
+
+            .minimize {
+                display: none;
+            }
+
+            &.is-maximized {
+                .minimize {
+                    display: inline;
+                }
+
+                .expand {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+/// imo-popup :: to be moved
+.imo {
+    &-popup {
+        font-size: $font-size-xs;
+
+        a {
+            color: $info;
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: $font-size-base;
+        }
+
+        h3 {
+            font-weight: 900;
+            margin: 20px 0;
+        }
+    }
+
+    &-list {
+        margin-left: 0 !important;
+
+        &-container {
+            @include position(absolute, 85px 20px 10px);
+            overflow: auto;
+
+            button {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border: 1px solid $dark;
+                text-align: left;
+                font-size: $font-size-xxxs;
+                display: inline-block;
+                cursor: pointer;
+                border-radius: $border-radius-sm;
+
+                &:hover {
+                    background-color: $info;
+                    color: $body-bg;
+                }
+            }
+        }
+
+        > div {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+
+    &-add-new {
+        margin-left: 0 !important;
+    }
+
+    &-clear-input {
+        padding-right: 10px;
+        top: -3px !important;
+    }
+
+    &-module-dialog {
+        font-size: $font-size-xs;
+
+        h3 {
+            font-size: $font-size-xs;
+            margin-bottom: 10px !important;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding-bottom: 8px;
+
+            &:first-child {
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: $font-size-xxxs;
+            }
+        }
+
+        input {
+            height: 40px;
+            min-width: 300px;
+            padding: $grid-gutter-width / 3 $grid-gutter-width $grid-gutter-width / 3 $grid-gutter-width / 3 !important;
+        }
+    }
+
+    &-dialog-actions {
+        button {
+            border: 1px solid $light;
+            font-size: $font-size-xxxs;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+    }
+}
+
+/// temporary TODO: to bbe removed
+.production-workbench-ui-pwb-toolbar-widget {
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+}
+
+.widget,
+.pwb-widget {
+    @include transition-default();
+
+    &.is-fullscreen {
+        @include transition-default();
+        @include position(fixed !important, 5px);
+        z-index: $zindex-modal * 2;
+        border: 1px solid $light;
+        border-radius: $border-radius-sm;
+        box-shadow: 0 0 3px 0 transparentize($dark, 0.8);
+        height: auto;
+        background-color: $body-bg;
+
+        .widget-heading {
+            margin-top: -12px;
+        }
+    }
+}
+
+.embedded-body {
+    overflow: hidden;
+
+    &:before {
+        @extend %floatElement-overlay;
+    }
+}
+
+.fullscreen-block {
+    overflow: hidden;
+}
+
+#wrapper {
+    input {
+        &.has-content {
+            background-color: transparent;
+        }
+    }
+}
+
+@keyframes overflow-visible {
+    from {
+        overflow: hidden;
+    }
+    to {
+        overflow: visible;
+    }
+}
+
+@keyframes overflow-hidden {
+    from {
+        overflow: visible;
+    }
+    to {
+        overflow: hidden;
+    }
+}

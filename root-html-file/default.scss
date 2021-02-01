@@ -1,0 +1,37 @@
+/// reset
+@import '../node_modules/reset-css/sass/reset';
+/// dependencies
+@import 'dependencies';
+@import 'brand/root';
+@import 'brand/reboot';
+
+/// global layout
+@import 'layout/grid/native';
+/// generating classes for all the included icons
+@import 'brand/fonts/icon-classes';
+
+.layout-wrapper {
+  *:not(input) {
+    &:focus {
+      box-shadow: 0 0 10px 0 transparentize($info, 0.6);
+      background-color: transparentize($info, 0.9);
+      border-radius: 3px;
+      color: $dark;
+      outline: 0;
+
+      .ui-dropdown-label,
+      .ui-dropdown-label-container {
+        background-color: transparent !important;
+        color: $dark !important;
+      }
+    }
+
+    &::selection {
+      //outline: 1px solid transparentize($info, 0.6) !important;
+      box-shadow: 0 0 10px 0 transparentize($info, 0.8);
+      background-color: transparentize($info, 0.9);
+      border-radius: 3px;
+      color: $dark;
+    }
+  }
+}
