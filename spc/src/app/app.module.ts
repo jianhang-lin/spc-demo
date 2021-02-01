@@ -20,6 +20,7 @@ import { MonitorHomeComponent } from './monitor/monitor-home/monitor-home.compon
 import { MonitorListComponent } from './monitor/monitor-list/monitor-list.component';
 import { ChartHomeComponent } from './chart/chart-home/chart-home.component';
 import { EmailHomeComponent } from './email/email-home/email-home.component';
+import { EmailListComponent } from './email/email-list/email-list.component';
 import { LockHomeComponent } from './lock/lock-home/lock-home.component';
 import { LocationFamilyHomeComponent } from './location-family/location-family-home/location-family-home.component';
 import { SystemLogHomeComponent } from './system-log/system-log-home/system-log-home.component';
@@ -56,6 +57,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     MonitorListComponent,
     ChartHomeComponent,
     EmailHomeComponent,
+    EmailListComponent,
     LockHomeComponent,
     LocationFamilyHomeComponent,
     SystemLogHomeComponent,
