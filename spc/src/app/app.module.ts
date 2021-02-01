@@ -24,6 +24,7 @@ import { EmailListComponent } from './email/email-list/email-list.component';
 import { LockHomeComponent } from './lock/lock-home/lock-home.component';
 import { LockListComponent } from './lock/lock-list/lock-list.component';
 import { LocationFamilyHomeComponent } from './location-family/location-family-home/location-family-home.component';
+import { LocationFamilyListComponent } from './location-family/location-family-list/location-family-list.component';
 import { SystemLogHomeComponent } from './system-log/system-log-home/system-log-home.component';
 import { SystemParameterHomeComponent } from './system-parameter/system-parameter-home/system-parameter-home.component';
 import { CardComponent } from './shared/card/card.component';
@@ -61,6 +62,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     LockHomeComponent,
     LockListComponent,
     LocationFamilyHomeComponent,
+    LocationFamilyListComponent,
     SystemLogHomeComponent,
     SystemParameterHomeComponent,
   ],
