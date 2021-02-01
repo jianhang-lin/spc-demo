@@ -19,6 +19,11 @@ import { FunctionListComponent } from './function/function-list/function-list.co
 import { MonitorHomeComponent } from './monitor/monitor-home/monitor-home.component';
 import { MonitorListComponent } from './monitor/monitor-list/monitor-list.component';
 import { ChartHomeComponent } from './chart/chart-home/chart-home.component';
+import { EmailHomeComponent } from './email/email-home/email-home.component';
+import { LockHomeComponent } from './lock/lock-home/lock-home.component';
+import { LocationFamilyHomeComponent } from './location-family/location-family-home/location-family-home.component';
+import { SystemLogHomeComponent } from './system-log/system-log-home/system-log-home.component';
+import { SystemParameterHomeComponent } from './system-parameter/system-parameter-home/system-parameter-home.component';
 import { CardComponent } from './shared/card/card.component';
 import { SpcTranslationService } from './services/spc-translation.service';
 import { ConfirmationService } from 'primeng/api';
@@ -29,6 +34,7 @@ import { MonitorService } from './services/monitor.service';
 import { ChartService } from './services/chart.service';
 import { SpcTranslateLoaderModel } from './domain/spc-translate-loader.model';
 import { assetUrl } from '../single-spa/asset-url';
+
 
 export function createSpcLocalStorageTranslateLoader(translationService: SpcTranslationService, http: HttpClient) {
   // return new SpcTranslateLoaderModel(translationService);
@@ -49,6 +55,11 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     MonitorHomeComponent,
     MonitorListComponent,
     ChartHomeComponent,
+    EmailHomeComponent,
+    LockHomeComponent,
+    LocationFamilyHomeComponent,
+    SystemLogHomeComponent,
+    SystemParameterHomeComponent,
   ],
   imports: [
     BrowserModule,
