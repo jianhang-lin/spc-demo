@@ -45,6 +45,12 @@
       "create-time": "创建时间",
       "expected-send-time": "预期发送时间",
       "actual-send-time": "实际发送时间"
+    },
+    "location-families-list": {
+      "process": "进程",
+      "department": "部门",
+      "location-family": "工位族",
+      "location": "工位"
     }
   },
   "general": {

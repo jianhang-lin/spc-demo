@@ -122,84 +122,35 @@ export let locationFamiliesColumns42QAdmin: Array<Column> = [
 
 export let locationFamiliesColumnsSite: Array<Column> = [
   {
-    header: 'spc.location-families-list.monitor-name',
-    field: 'monitorName',
+    header: 'spc.location-families-list.process',
+    field: 'process',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
-    placeholder: 'spc.monitor-groups-list.search-by-group-name',
+    placeholder: 'spc.monitor-groups-list.department',
     isGlobal: true,
     isDisplayed: true,
     autofocus: true,
     sortDisabled: false
   },
   {
-    header: 'spc.location-families-list.monitor-type',
-    field: 'monitorType',
+    header: 'spc.location-families-list.department',
+    field: 'department',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.location-families-list.monitor-short-name',
-    field: 'monitorShortName',
+    header: 'spc.location-families-list.location-family',
+    field: 'locationFamily',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.location-families-list.part-number-family-id',
-    field: 'partNumber',
+    header: 'spc.location-families-list.location',
+    field: 'location',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
-  },
-  {
-    header: 'spc.location-families-list.grouping-type',
-    field: 'groupingType',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false
-  },
-  {
-    header: 'spc.location-families-list.collection-type',
-    field: 'dataSource',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.location-families-list.monitor-status',
-    field: 'monitorStatus',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.location-families-list.batch-id',
-    field: 'batchId',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.location-families-list.update-time',
-    field: 'updateTime',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.location-families-list.update-by',
-    field: 'updateBy',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.location-families-list.more',
-    field: 'monitorGroupListIcon',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
+  }
 ];

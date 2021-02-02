@@ -45,6 +45,12 @@
       "create-time": "Create Time",
       "expected-send-time": "Expected Send Time",
       "actual-send-time": "Actual Send Time"
+    },
+    "location-families-list": {
+      "process": "Process",
+      "department": "Department",
+      "location-family": "Location Family",
+      "location": "Location"
     }
   },
   "general": {
