@@ -35,6 +35,16 @@
       "monitor-group": "Monitor Group",
       "email-group": "Email Group",
       "status": "Status"
+    },
+    "locks-list": {
+      "monitor-name": "Monitor Name",
+      "location-process-location-family": "Location|Process|Location Family",
+      "part-number-family-id": "Part Number|Family ID",
+      "status": "Status",
+      "chart-type": "Chart Type",
+      "create-time": "Create Time",
+      "expected-send-time": "Expected Send Time",
+      "actual-send-time": "Actual Send Time"
     }
   },
   "general": {

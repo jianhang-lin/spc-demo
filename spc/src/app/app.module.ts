@@ -38,6 +38,7 @@ import { FunctionService } from './services/function.service';
 import { MonitorService } from './services/monitor.service';
 import { ChartService } from './services/chart.service';
 import { EmailService } from './services/email.service';
+import { LockService } from './services/lock.service';
 import { SpcTranslateLoaderModel } from './domain/spc-translate-loader.model';
 import { assetUrl } from '../single-spa/asset-url';
 
@@ -98,6 +99,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     MonitorService,
     ChartService,
     EmailService,
+    LockService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [

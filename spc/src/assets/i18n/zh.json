@@ -35,6 +35,16 @@
       "monitor-group": "监控组",
       "email-group": "邮件组",
       "status": "状态"
+    },
+    "locks-list": {
+      "monitor-name": "监控名",
+      "location-process-location-family": "工位|进程|工位族",
+      "part-number-family-id": "产品编码|族编码",
+      "status": "状态",
+      "chart-type": "图表类型",
+      "create-time": "创建时间",
+      "expected-send-time": "预期发送时间",
+      "actual-send-time": "实际发送时间"
     }
   },
   "general": {
