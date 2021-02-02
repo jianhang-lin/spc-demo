@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.homePage = new HomePageModelBuilder().getDefaultHomePageModel();
   }
 
-  isSpcPage() {
+  isSpcHomePage() {
     return window.location.pathname === '/spc';
   }
 
