@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HomeService } from '../../services/home.service';
 import { HomeCardModel } from '../../domain/home-card.model';
 import { Router } from '@angular/router';
-import { HomePageModelBuilder } from '../../domain/home-page.model';
+import { HomePageBuilder } from '../../domain/home-page.model';
 
 @Component({
   selector: 'spc-home-list',
@@ -31,7 +31,7 @@ export class HomeListComponent implements OnInit {
   selectHomeCard(index: number) {
     const communityId = 10418;
     if (index === this.enterSpcCardIndex) {
-      this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getMonitorGroupHomePageModel());
+      this.homeService.switchCurrentHomePage(new HomePageBuilder().getMonitorGroupHomePage());
     }
   }
 }

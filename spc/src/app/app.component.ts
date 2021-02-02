@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { HomeService } from './services/home.service';
-import { HomePageModel, HomePageModelBuilder } from './domain/home-page.model';
+import { HomePage, HomePageBuilder } from './domain/home-page.model';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { HomePageModel, HomePageModelBuilder } from './domain/home-page.model';
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   title = 'This is SPC Project';
-  homePage: HomePageModel;
+  homePage: HomePage;
 
   currentHomePageSubscription: Subscription;
   monitorGroupListSubscription: Subscription;
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   initDefaultHomePage() {
-    this.homePage = new HomePageModelBuilder().getDefaultHomePageModel();
+    this.homePage = new HomePageBuilder().getDefaultHomePage();
   }
 
   isSpcHomePage() {

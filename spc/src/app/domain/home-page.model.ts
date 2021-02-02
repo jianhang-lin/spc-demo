@@ -1,4 +1,4 @@
-export interface HomePageModel {
+export interface HomePage {
   isSpcHomePage: boolean;
   isMonitorGroupHomePage: boolean;
   isFunctionHomePage: boolean;
@@ -6,18 +6,18 @@ export interface HomePageModel {
   isChartHomePage: boolean;
 }
 
-export class HomePageModelBuilder {
+export class HomePageBuilder {
 
   constructor() {
   }
 
-  private static homePageModel(
+  private static homePage(
     isSpcHomePage: boolean,
     isMonitorGroupHomePage: boolean,
     isFunctionHomePage: boolean,
     isMonitorHomePage: boolean,
     isChartHomePage: boolean
-  ): HomePageModel {
+  ): HomePage {
     return {
       isSpcHomePage,
       isMonitorGroupHomePage,
@@ -27,27 +27,27 @@ export class HomePageModelBuilder {
     };
   }
 
-  public getDefaultHomePageModel(): HomePageModel {
-    return HomePageModelBuilder.homePageModel(true, false, false, false, false);
+  public getDefaultHomePage(): HomePage {
+    return HomePageBuilder.homePage(true, false, false, false, false);
   }
 
-  public getSpcHomePageModel(): HomePageModel {
-    return HomePageModelBuilder.homePageModel(true, false, false, false, false);
+  public getSpcHomePage(): HomePage {
+    return HomePageBuilder.homePage(true, false, false, false, false);
   }
 
-  public getMonitorGroupHomePageModel(): HomePageModel {
-    return HomePageModelBuilder.homePageModel(false, true, false, false, false);
+  public getMonitorGroupHomePage(): HomePage {
+    return HomePageBuilder.homePage(false, true, false, false, false);
   }
 
-  public getFuncitonHomePageModel(): HomePageModel {
-    return HomePageModelBuilder.homePageModel(false, false, true, false, false);
+  public getFunctionHomePage(): HomePage {
+    return HomePageBuilder.homePage(false, false, true, false, false);
   }
 
-  public getMonitorHomePageModel(): HomePageModel {
-    return HomePageModelBuilder.homePageModel(false, false, false, true, false);
+  public getMonitorHomePage(): HomePage {
+    return HomePageBuilder.homePage(false, false, false, true, false);
   }
 
-  public getChartHomePageModel(): HomePageModel {
-    return HomePageModelBuilder.homePageModel(false, false, false, false, true);
+  public getChartHomePage(): HomePage {
+    return HomePageBuilder.homePage(false, false, false, false, true);
   }
 }

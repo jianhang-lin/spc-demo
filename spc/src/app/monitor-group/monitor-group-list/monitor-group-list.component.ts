@@ -17,7 +17,7 @@ import {
 } from '../monitor-group-table-actions';
 import { Customer } from '../../domain/list-user.model';
 import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
-import { HomePageModelBuilder } from '../../domain/home-page.model';
+import { HomePageBuilder } from '../../domain/home-page.model';
 
 export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
@@ -301,7 +301,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
     this.confirmationService.confirm({
       message: 'Are you sure you want go to function page?',
       accept: () => {
-        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getFuncitonHomePageModel());
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getFunctionHomePage());
       },
       reject: () => {
       }

@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HomeCardModel } from '../domain/home-card.model';
 import { assetUrl } from '../../single-spa/asset-url';
-import { HomePageModel, HomePageModelBuilder } from '../domain/home-page.model';
+import { HomePage, HomePageBuilder } from '../domain/home-page.model';
 
 @Injectable()
 export class HomeService {
 
-  public currentHomePageSubject = new BehaviorSubject<HomePageModel>(new HomePageModelBuilder().getDefaultHomePageModel());
+  public currentHomePageSubject = new BehaviorSubject<HomePage>(new HomePageBuilder().getDefaultHomePage());
 
   constructor() {}
 
@@ -24,7 +24,7 @@ export class HomeService {
     return of(homeCards);
   }
 
-  switchCurrentHomePage(homePage: HomePageModel): void {
+  switchCurrentHomePage(homePage: HomePage): void {
     this.currentHomePageSubject.next(homePage);
   }
 
