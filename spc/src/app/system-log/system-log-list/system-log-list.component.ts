@@ -9,7 +9,7 @@ import { HomeService } from '../../services/home.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
 import { Column } from 'shared-ui';
 import { Customer } from '../../domain/list-user.model';
-import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
+import { LogList } from '../../domain/log-list.model';
 import {
   systemLogsEnableActionsRules, systemLogsEnableActionsRules42Q, systemLogsEnableActionsRulesSite,
   systemLogsTableActions
@@ -47,7 +47,7 @@ export class SystemLogListComponent implements OnInit, AfterViewInit {
   filterBySite;
   filterByPlant;
   filterByCustomer;
-  monitorGroupListSubscription: Subscription;
+  logListSubscription: Subscription;
   constructor(
     private httpClient: HttpClient,
     private translateService: TranslateService,
@@ -106,21 +106,21 @@ export class SystemLogListComponent implements OnInit, AfterViewInit {
   onLazyLoad(lazyEventData: { searchRequest: any, table: CustomizedTableComponent }) {
     // this.getDataSearchRequest();
     this.systemLogsTable = lazyEventData.table;
-    this.getMonitorGroupDataSearchRequest(lazyEventData);
+    this.getLogDataSearchRequest(lazyEventData);
   }
 
-  getMonitorGroupDataSearchRequest(lazyEventData: { searchRequest: any, table: CustomizedTableComponent }) {
+  getLogDataSearchRequest(lazyEventData: { searchRequest: any, table: CustomizedTableComponent }) {
     /*this.monitorGroupListSubscription = this.monitorGroupService.getMonitorGroups().subscribe(value => {
       console.log(JSON.stringify(value));
       // const response = data.body as DataTableResponse;
       // debugger;
       this.tableData.push(value);
     });*/
-    this.monitorGroupListSubscription = this.getData(lazyEventData.table.dataUrl, lazyEventData.searchRequest).subscribe(
+    this.logListSubscription = this.getData(lazyEventData.table.dataUrl, lazyEventData.searchRequest).subscribe(
       (data) => {
-        const monitorGroupsList = data.body as MonitorGroupsList;
-        this.totalRecords = this.getTotalRecords(monitorGroupsList.hasMoreElements, lazyEventData.searchRequest);
-        this.tableData = monitorGroupsList.dtoList;
+        const logsList = data.body as LogList;
+        this.totalRecords = this.getTotalRecords(logsList.hasMoreElements, lazyEventData.searchRequest);
+        this.tableData = logsList.dtoList;
       },
       () => {
         const toastTitle = this.translateService.instant('general.error.system-error');

@@ -51,6 +51,11 @@
       "department": "部门",
       "location-family": "工位族",
       "location": "工位"
+    },
+    "system-logs-list": {
+      "date": "日期",
+      "perform-by": "执行者",
+      "operation": "操作"
     }
   },
   "general": {

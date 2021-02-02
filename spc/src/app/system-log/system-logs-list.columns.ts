@@ -122,8 +122,8 @@ export let systemLogsColumns42QAdmin: Array<Column> = [
 
 export let systemLogsColumnsSite: Array<Column> = [
   {
-    header: 'spc.system-logs-list.monitor-name',
-    field: 'monitorName',
+    header: 'spc.system-logs-list.date',
+    field: 'date',
     filterType: 'globalFilter',
     filterMatchMode: 'LIKE',
     placeholder: 'spc.monitor-groups-list.search-by-group-name',
@@ -133,73 +133,17 @@ export let systemLogsColumnsSite: Array<Column> = [
     sortDisabled: false
   },
   {
-    header: 'spc.system-logs-list.monitor-type',
-    field: 'monitorType',
+    header: 'spc.system-logs-list.perform-by',
+    field: 'performBy',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
   },
   {
-    header: 'spc.system-logs-list.monitor-short-name',
-    field: 'monitorShortName',
+    header: 'spc.system-logs-list.operation',
+    field: 'operation',
     isDisplayed: true,
     autofocus: false,
     sortDisabled: false
-  },
-  {
-    header: 'spc.system-logs-list.part-number-family-id',
-    field: 'partNumber',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false
-  },
-  {
-    header: 'spc.system-logs-list.grouping-type',
-    field: 'groupingType',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false
-  },
-  {
-    header: 'spc.system-logs-list.collection-type',
-    field: 'dataSource',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.system-logs-list.monitor-status',
-    field: 'monitorStatus',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.system-logs-list.batch-id',
-    field: 'batchId',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.system-logs-list.update-time',
-    field: 'updateTime',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.system-logs-list.update-by',
-    field: 'updateBy',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
-  {
-    header: 'spc.system-logs-list.more',
-    field: 'monitorGroupListIcon',
-    isDisplayed: true,
-    autofocus: false,
-    sortDisabled: false,
-  },
+  }
 ];

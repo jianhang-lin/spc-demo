@@ -51,6 +51,11 @@
       "department": "Department",
       "location-family": "Location Family",
       "location": "Location"
+    },
+    "system-logs-list": {
+      "date": "Date",
+      "perform-by": "Perform By",
+      "operation": "Operation"
     }
   },
   "general": {
