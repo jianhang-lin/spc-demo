@@ -29,6 +29,9 @@ import { SystemLogHomeComponent } from './system-log/system-log-home/system-log-
 import { SystemLogListComponent } from './system-log/system-log-list/system-log-list.component';
 import { SystemParameterHomeComponent } from './system-parameter/system-parameter-home/system-parameter-home.component';
 import { SystemParameterListComponent } from './system-parameter/system-parameter-list/system-parameter-list.component';
+import {
+  SystemParameterDetailsFormComponent
+} from './system-parameter/system-parameter-details-form/system-parameter-details-form.component';
 import { CardComponent } from './shared/card/card.component';
 import { SpcTranslationService } from './services/spc-translation.service';
 import { ConfirmationService } from 'primeng/api';
@@ -71,6 +74,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     SystemLogListComponent,
     SystemParameterHomeComponent,
     SystemParameterListComponent,
+    SystemParameterDetailsFormComponent,
   ],
   imports: [
     BrowserModule,
