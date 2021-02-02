@@ -16,7 +16,7 @@ import {
 } from '../../lock/lock-table-actions';
 import { locksColumns42QAdmin, locksColumnsSite } from '../../lock/locks-list.columns';
 import { UserDetailsType } from '../../monitor-group/monitor-group-list/monitor-group-list.component';
-import { HomePageModelBuilder } from '../../domain/home-page.model';
+import { HomePageBuilder } from '../../domain/home-page.model';
 
 
 @Component({
@@ -203,7 +203,7 @@ export class LockListComponent implements OnInit, AfterViewInit {
     this.confirmationService.confirm({
       message: 'Are you sure you want go to chart list page?',
       accept: () => {
-        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getChartHomePageModel());
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getChartHomePage());
       },
       reject: () => {
       }

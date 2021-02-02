@@ -16,7 +16,7 @@ import {
 } from '../../monitor/monitor-table-actions';
 import { monitorsColumns42QAdmin, monitorsColumnsSite } from '../../monitor/monitors-list.columns';
 import { UserDetailsType } from '../../monitor-group/monitor-group-list/monitor-group-list.component';
-import { HomePageModelBuilder } from '../../domain/home-page.model';
+import { HomePageBuilder } from '../../domain/home-page.model';
 
 @Component({
   selector: 'spc-monitor-list',
@@ -202,7 +202,7 @@ export class MonitorListComponent implements OnInit, AfterViewInit {
     this.confirmationService.confirm({
       message: 'Are you sure you want go to chart list page?',
       accept: () => {
-        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getChartHomePageModel());
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getChartHomePage());
       },
       reject: () => {
       }

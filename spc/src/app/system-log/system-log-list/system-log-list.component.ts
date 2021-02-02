@@ -16,7 +16,7 @@ import {
 } from '../../system-log/system-log-table-actions';
 import { systemLogsColumns42QAdmin, systemLogsColumnsSite } from '../../system-log/system-logs-list.columns';
 import { UserDetailsType } from '../../monitor-group/monitor-group-list/monitor-group-list.component';
-import { HomePageModelBuilder } from '../../domain/home-page.model';
+import { HomePageBuilder } from '../../domain/home-page.model';
 
 @Component({
   selector: 'spc-system-log-list',
@@ -202,7 +202,7 @@ export class SystemLogListComponent implements OnInit, AfterViewInit {
     this.confirmationService.confirm({
       message: 'Are you sure you want go to chart list page?',
       accept: () => {
-        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getChartHomePageModel());
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getChartHomePage());
       },
       reject: () => {
       }

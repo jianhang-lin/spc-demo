@@ -16,7 +16,7 @@ import {
 } from '../../location-family/location-family-table-actions';
 import { locationFamiliesColumns42QAdmin, locationFamiliesColumnsSite } from '../../location-family/location-families-list.columns';
 import { UserDetailsType } from '../../monitor-group/monitor-group-list/monitor-group-list.component';
-import { HomePageModelBuilder } from '../../domain/home-page.model';
+import { HomePageBuilder } from '../../domain/home-page.model';
 
 @Component({
   selector: 'spc-location-family-list',
@@ -202,7 +202,7 @@ export class LocationFamilyListComponent implements OnInit, AfterViewInit {
     this.confirmationService.confirm({
       message: 'Are you sure you want go to chart list page?',
       accept: () => {
-        this.homeService.switchCurrentHomePage(new HomePageModelBuilder().getChartHomePageModel());
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getChartHomePage());
       },
       reject: () => {
       }
