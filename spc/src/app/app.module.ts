@@ -13,6 +13,7 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { HomeListComponent} from './home/home-list/home-list.component';
 import { HomeCardComponent } from './home/home-card/home-card.component';
 import { MonitorGroupHomeComponent } from './monitor-group/monitor-group-home/monitor-group-home.component';
+import { MonitorGroupDetailsFormComponent } from './monitor-group/monitor-group-details-form/monitor-group-details-form.component';
 import { MonitorGroupListComponent } from './monitor-group/monitor-group-list/monitor-group-list.component';
 import { FunctionHomeComponent } from './function/function-home/function-home.component';
 import { FunctionListComponent } from './function/function-list/function-list.component';
@@ -58,6 +59,7 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     HomeListComponent,
     HomeCardComponent,
     MonitorGroupHomeComponent,
+    MonitorGroupDetailsFormComponent,
     MonitorGroupListComponent,
     FunctionHomeComponent,
     FunctionListComponent,
