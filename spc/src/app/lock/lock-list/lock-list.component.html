@@ -1,4 +1,11 @@
 <ng-container>
+
+  <div class="table-actions">
+    <button #goToFunctionHomePageButton class="spc-button-link" (click)="onGoToFunctionPage($event)">
+      {{ 'spc.locks.label.go-to-function-home-page' | translate }}
+    </button>
+  </div>
+
   <app-customized-table
     #locksTable
     [data]="tableData"

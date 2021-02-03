@@ -56,6 +56,11 @@
       "status": "Status",
       "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
+    "locks": {
+      "label": {
+        "go-to-function-home-page": "GO TO FUNCTION HOME"
+      }
+    },
     "locks-list": {
       "monitor-name": "Monitor Name",
       "location-process-location-family": "Location|Process|Location Family",
@@ -64,7 +69,8 @@
       "chart-type": "Chart Type",
       "create-time": "Create Time",
       "expected-send-time": "Expected Send Time",
-      "actual-send-time": "Actual Send Time"
+      "actual-send-time": "Actual Send Time",
+      "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
     "location-families-list": {
       "process": "Process",

@@ -56,6 +56,11 @@
       "status": "状态",
       "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
+    "locks": {
+      "label": {
+        "go-to-function-home-page": "跳转到功能列表"
+      }
+    },
     "locks-list": {
       "monitor-name": "监控名",
       "location-process-location-family": "工位|进程|工位族",
@@ -64,7 +69,8 @@
       "chart-type": "图表类型",
       "create-time": "创建时间",
       "expected-send-time": "预期发送时间",
-      "actual-send-time": "实际发送时间"
+      "actual-send-time": "实际发送时间",
+      "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
     "location-families-list": {
       "process": "进程",
