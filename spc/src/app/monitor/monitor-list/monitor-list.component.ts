@@ -25,8 +25,9 @@ import { HomePageBuilder } from '../../domain/home-page.model';
 })
 export class MonitorListComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('goToFunctionHomePageButton', { static: false }) goToFunctionHomePageButton: ElementRef;
+  @ViewChild('addMonitorButton', { static: false }) addMonitorButton: ElementRef;
   @ViewChild('monitorGroupsTable', { static: false }) monitorGroupsTable: CustomizedTableComponent;
-  @ViewChild('bulkUploadButton', { static: false }) bulkUploadButton: ElementRef;
   tableData = [];
   tableColumns = [];
   totalRecords: number;
@@ -195,7 +196,7 @@ export class MonitorListComponent implements OnInit, AfterViewInit {
   }
 
   onBlurMoreButton() {
-    this.bulkUploadButton.nativeElement.focus();
+    this.addMonitorButton.nativeElement.focus();
   }
 
   onGoToMonitor($event: MouseEvent) {
@@ -203,6 +204,22 @@ export class MonitorListComponent implements OnInit, AfterViewInit {
       message: 'Are you sure you want go to chart list page?',
       accept: () => {
         this.homeService.switchCurrentHomePage(new HomePageBuilder().getChartHomePage());
+      },
+      reject: () => {
+      }
+    });
+  }
+
+  openForm() {
+    console.log('monitor open form');
+  }
+
+  onGoToFunctionPage($event: MouseEvent) {
+    this.confirmationService.confirm({
+      icon: 'icon-info',
+      message: this.translateService.instant('spc.monitors-list.confirm-go-to-function-home-page-message'),
+      accept: () => {
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getFunctionHomePage());
       },
       reject: () => {
       }

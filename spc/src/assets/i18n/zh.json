@@ -17,6 +17,12 @@
       "search-by-group-name": "根据组名查询",
       "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
+    "monitors": {
+      "label": {
+        "go-to-function-home-page": "跳转到功能列表",
+        "add-monitor": "新增监控"
+      }
+    },
     "monitors-list": {
       "monitor-name": "监控名",
       "monitor-type": "监控类型",
@@ -28,7 +34,8 @@
       "batch-id": "批次编号",
       "update-time": "更新时间",
       "update-by": "更新者",
-      "more": "更多..."
+      "more": "更多...",
+      "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
     "emails-list": {
       "name": "名称",

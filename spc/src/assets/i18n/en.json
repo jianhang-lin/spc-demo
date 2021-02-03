@@ -17,6 +17,12 @@
       "search-by-group-name": "Search by group name",
       "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
+    "monitors": {
+      "label": {
+        "go-to-function-home-page": "GO TO FUNCTION HOME",
+        "add-monitor": "ADD MONITOR"
+      }
+    },
     "monitors-list": {
       "monitor-name": "Monitor Name",
       "monitor-type": "Monitor Type",
@@ -28,7 +34,8 @@
       "batch-id": "BatchId",
       "update-time": "UpdateTime",
       "update-by": "Update By",
-      "more": "More..."
+      "more": "More...",
+      "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
     "emails-list": {
       "name": "Name",
