@@ -26,7 +26,7 @@ import { HomePageBuilder } from '../../domain/home-page.model';
 export class SystemLogListComponent implements OnInit, AfterViewInit {
 
   @ViewChild('systemLogsTable', { static: false }) systemLogsTable: CustomizedTableComponent;
-  @ViewChild('bulkUploadButton', { static: false }) bulkUploadButton: ElementRef;
+  @ViewChild('goToFunctionHomePageButton', { static: false }) goToFunctionHomePageButton: ElementRef;
   tableData = [];
   tableColumns = [];
   totalRecords: number;
@@ -195,7 +195,7 @@ export class SystemLogListComponent implements OnInit, AfterViewInit {
   }
 
   onBlurMoreButton() {
-    this.bulkUploadButton.nativeElement.focus();
+    this.goToFunctionHomePageButton.nativeElement.focus();
   }
 
   onGoToMonitor($event: MouseEvent) {
@@ -209,4 +209,15 @@ export class SystemLogListComponent implements OnInit, AfterViewInit {
     });
   }
 
+  onGoToFunctionPage($event: MouseEvent) {
+    this.confirmationService.confirm({
+      icon: 'icon-info',
+      message: this.translateService.instant('spc.system-logs-list.confirm-go-to-function-home-page-message'),
+      accept: () => {
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getFunctionHomePage());
+      },
+      reject: () => {
+      }
+    });
+  }
 }

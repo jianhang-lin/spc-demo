@@ -1,4 +1,9 @@
 <ng-container>
+  <div class="table-actions">
+    <button #goToFunctionHomePageButton class="spc-button-link" (click)="onGoToFunctionPage($event)">
+      {{ 'spc.system-logs.label.go-to-function-home-page' | translate }}
+    </button>
+  </div>
   <app-customized-table
     #systemLogsTable
     [data]="tableData"

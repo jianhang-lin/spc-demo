@@ -84,10 +84,16 @@
       "location": "工位",
       "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
+    "system-logs": {
+      "label": {
+        "go-to-function-home-page": "跳转到功能列表"
+      }
+    },
     "system-logs-list": {
       "date": "日期",
       "perform-by": "执行者",
-      "operation": "操作"
+      "operation": "操作",
+      "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     }
   },
   "general": {

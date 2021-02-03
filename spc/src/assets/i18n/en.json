@@ -84,10 +84,16 @@
       "location": "Location",
       "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
+    "system-logs": {
+      "label": {
+        "go-to-function-home-page": "GO TO FUNCTION HOME"
+      }
+    },
     "system-logs-list": {
       "date": "Date",
       "perform-by": "Perform By",
-      "operation": "Operation"
+      "operation": "Operation",
+      "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     }
   },
   "general": {
