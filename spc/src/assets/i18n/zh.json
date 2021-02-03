@@ -37,6 +37,11 @@
       "more": "更多...",
       "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
+    "emails": {
+      "label": {
+        "go-to-function-home-page": "跳转到功能列表"
+      }
+    },
     "emails-list": {
       "name": "名称",
       "description": "描述",
@@ -48,7 +53,8 @@
       "location-family": "工位族",
       "monitor-group": "监控组",
       "email-group": "邮件组",
-      "status": "状态"
+      "status": "状态",
+      "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
     "locks-list": {
       "monitor-name": "监控名",

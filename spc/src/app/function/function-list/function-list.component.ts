@@ -32,7 +32,7 @@ export class FunctionListComponent implements OnInit {
         this.homeService.switchCurrentHomePage(new HomePageBuilder().getMonitorHomePage());
         break;
       case '/spc/emails':
-        this.homeService.switchCurrentHomePage(new HomePageBuilder().getMonitorHomePage());
+        this.homeService.switchCurrentHomePage(new HomePageBuilder().getEmailHomePage());
         break;
       case '/spc/locks':
         this.homeService.switchCurrentHomePage(new HomePageBuilder().getLockHomePage());

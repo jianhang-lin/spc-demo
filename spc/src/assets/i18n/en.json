@@ -37,6 +37,11 @@
       "more": "More...",
       "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
+    "emails": {
+      "label": {
+        "go-to-function-home-page": "GO TO FUNCTION HOME"
+      }
+    },
     "emails-list": {
       "name": "Name",
       "description": "Description",
@@ -48,7 +53,8 @@
       "location-family": "Location Family",
       "monitor-group": "Monitor Group",
       "email-group": "Email Group",
-      "status": "Status"
+      "status": "Status",
+      "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
     "locks-list": {
       "monitor-name": "Monitor Name",
