@@ -1,9 +1,9 @@
 export interface HomePage {
-  isSpcHomePage: boolean;
-  isMonitorGroupHomePage: boolean;
-  isFunctionHomePage: boolean;
-  isMonitorHomePage: boolean;
-  isChartHomePage: boolean;
+  spcHomePage: boolean;
+  monitorGroupHomePage: boolean;
+  functionHomePage: boolean;
+  monitorHomePage: boolean;
+  chartHomePage: boolean;
 }
 
 export class HomePageBuilder {
@@ -12,18 +12,18 @@ export class HomePageBuilder {
   }
 
   private static homePage(
-    isSpcHomePage: boolean,
-    isMonitorGroupHomePage: boolean,
-    isFunctionHomePage: boolean,
-    isMonitorHomePage: boolean,
-    isChartHomePage: boolean
+    spcHomePage: boolean,
+    monitorGroupHomePage: boolean,
+    functionHomePage: boolean,
+    monitorHomePage: boolean,
+    chartHomePage: boolean
   ): HomePage {
     return {
-      isSpcHomePage,
-      isMonitorGroupHomePage,
-      isFunctionHomePage,
-      isMonitorHomePage,
-      isChartHomePage
+      spcHomePage,
+      monitorGroupHomePage,
+      functionHomePage,
+      monitorHomePage,
+      chartHomePage
     };
   }
 

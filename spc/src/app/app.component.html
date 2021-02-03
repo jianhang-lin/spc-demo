@@ -1,10 +1,10 @@
 <h2 *ngIf="isSpcHomePage()">{{ 'spc.title' | translate}}</h2>
 <br>
 <ng-container>
-  <spc-home-list *ngIf="isSpcHomePage() && homePage.isSpcHomePage"></spc-home-list>
-  <spc-monitor-group-home *ngIf="homePage.isMonitorGroupHomePage"></spc-monitor-group-home>
-  <spc-function-home *ngIf="homePage.isFunctionHomePage"></spc-function-home>
-  <spc-monitor-home *ngIf="homePage.isMonitorHomePage"></spc-monitor-home>
-  <spc-chart-home *ngIf="homePage.isChartHomePage"></spc-chart-home>
+  <spc-home-list *ngIf="isSpcHomePage() && homePage.spcHomePage"></spc-home-list>
+  <spc-monitor-group-home *ngIf="homePage.monitorGroupHomePage"></spc-monitor-group-home>
+  <spc-function-home *ngIf="homePage.functionHomePage"></spc-function-home>
+  <spc-monitor-home *ngIf="homePage.monitorHomePage"></spc-monitor-home>
+  <spc-chart-home *ngIf="homePage.chartHomePage"></spc-chart-home>
 </ng-container>
 
