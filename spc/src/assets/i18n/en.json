@@ -72,11 +72,17 @@
       "actual-send-time": "Actual Send Time",
       "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
+    "location-families": {
+      "label": {
+        "go-to-function-home-page": "GO TO FUNCTION HOME"
+      }
+    },
     "location-families-list": {
       "process": "Process",
       "department": "Department",
       "location-family": "Location Family",
-      "location": "Location"
+      "location": "Location",
+      "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
     "system-logs-list": {
       "date": "Date",

@@ -72,11 +72,17 @@
       "actual-send-time": "实际发送时间",
       "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
+    "location-families": {
+      "label": {
+        "go-to-function-home-page": "跳转到功能列表"
+      }
+    },
     "location-families-list": {
       "process": "进程",
       "department": "部门",
       "location-family": "工位族",
-      "location": "工位"
+      "location": "工位",
+      "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
     "system-logs-list": {
       "date": "日期",
