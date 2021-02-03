@@ -1,2 +1,21 @@
 $theme: default;
 @import 'node_modules/shared-ui/shared-scss/scss/dependencies';
+
+::ng-deep .table-actions {
+  @include position(absolute, $dropdown-element-spacing $grid-gutter-width / 2 null null);
+  z-index: $zindex-dropdown + 1;
+  display: flex;
+
+  > * {
+    margin-left: $grid-gutter-width / 4;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .spc-button-link {
+    @include button($icon: link, $size: $xxs-button-size);
+    text-transform: uppercase;
+  }
+}
