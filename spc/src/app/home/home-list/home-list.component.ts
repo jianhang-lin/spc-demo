@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { HomeService } from '../../services/home.service';
 import { HomeCardModel } from '../../domain/home-card.model';
-import { Router } from '@angular/router';
 import { HomePageBuilder } from '../../domain/home-page.model';
 
 @Component({
@@ -10,22 +10,27 @@ import { HomePageBuilder } from '../../domain/home-page.model';
   templateUrl: './home-list.component.html',
   styleUrls: ['./home-list.component.scss']
 })
-export class HomeListComponent implements OnInit {
+export class HomeListComponent implements OnInit, OnDestroy {
 
   @Output() doSelected = new EventEmitter<void>();
+  enterSpcCardIndex = 5;
   isEnterSpcCard: boolean;
-  enterSpcCardIndex: number;
   homeCards$: Observable<HomeCardModel[]>;
+  homeCardsSubscription: Subscription;
   constructor(private router: Router,
               private homeService: HomeService) { }
 
   ngOnInit() {
     this.isEnterSpcCard = false;
-    this.enterSpcCardIndex = 5;
     this.homeCards$ = this.homeService.initHomeCards();
-    this.homeCards$.subscribe(value => {
-      console.log(JSON.stringify(value));
+    this.homeCardsSubscription = this.homeCards$.subscribe(homeCard => {
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.homeCardsSubscription) {
+      this.homeCardsSubscription.unsubscribe();
+    }
   }
 
   selectHomeCard(index: number) {
