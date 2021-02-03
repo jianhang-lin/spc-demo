@@ -32,7 +32,8 @@ export enum UserDetailsType {
 export class MonitorGroupListComponent implements OnInit, AfterViewInit {
 
   @ViewChild('monitorGroupsTable', { static: false }) monitorGroupsTable: CustomizedTableComponent;
-  @ViewChild('bulkUploadButton', { static: false }) bulkUploadButton: ElementRef;
+  @ViewChild('goToFunctionHomePageButton', { static: false }) goToFunctionHomePageButton: ElementRef;
+  @ViewChild('addMonitorGroupButton', { static: false }) addMonitorGroupButton: ElementRef;
   tableData = [];
   tableColumns = [];
   totalRecords: number;
@@ -294,17 +295,22 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
   }
 
   onBlurMoreButton() {
-    this.bulkUploadButton.nativeElement.focus();
+    this.addMonitorGroupButton.nativeElement.focus();
   }
 
   onGoToFunctionPage($event: MouseEvent) {
     this.confirmationService.confirm({
-      message: 'Are you sure you want go to function page?',
+      icon: 'icon-info',
+      message: this.translateService.instant('spc.monitor-groups-list.confirm-go-to-function-home-page-message'),
       accept: () => {
         this.homeService.switchCurrentHomePage(new HomePageBuilder().getFunctionHomePage());
       },
       reject: () => {
       }
     });
+  }
+
+  openForm() {
+    console.log('onpenForm');
   }
 }

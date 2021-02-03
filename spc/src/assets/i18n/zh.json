@@ -1,6 +1,12 @@
 {
   "spc": {
     "title": "SPC项目",
+    "monitor-groups": {
+      "label": {
+        "go-to-function-home-page": "跳转到功能列表",
+        "add-monitor-group": "新增监控组"
+      }
+    },
     "monitor-groups-list": {
       "group-name": "组名",
       "data-source-type": "数据源类型",
@@ -8,7 +14,8 @@
       "net-user-id": "车间编号",
       "mds-url": "MDS地址/SFDC网页服务地址",
       "icon": "图标",
-      "search-by-group-name": "根据组名查询"
+      "search-by-group-name": "根据组名查询",
+      "confirm-go-to-function-home-page-message": "确定要跳转到功能列表页面?"
     },
     "monitors-list": {
       "monitor-name": "监控名",

@@ -1,4 +1,14 @@
 <ng-container>
+
+  <div class="table-actions">
+    <button #goToFunctionHomePageButton class="spc-button-link" (click)="onGoToFunctionPage($event)">
+      {{ 'spc.monitor-groups.label.go-to-function-home-page' | translate }}
+    </button>
+    <button #addMonitorGroupButton class="button-add" (click)="openForm()">
+      {{ 'spc.monitor-groups.label.add-monitor-group' | translate }}
+    </button>
+  </div>
+
   <app-customized-table
     #monitorGroupsTable
     [data]="tableData"

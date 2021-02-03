@@ -1,6 +1,12 @@
 {
   "spc": {
     "title": "SPC project",
+    "monitor-groups": {
+      "label": {
+        "go-to-function-home-page": "GO TO FUNCTION HOME",
+        "add-monitor-group": "ADD MONITOR GROUP"
+      }
+    },
     "monitor-groups-list": {
       "group-name": "Group Name",
       "data-source-type": "Data Source Type",
@@ -8,7 +14,8 @@
       "net-user-id": "Shop Floor ID",
       "mds-url": "MDS URL/SFDC Web Service URL",
       "icon": "icon",
-      "search-by-group-name": "Search by group name"
+      "search-by-group-name": "Search by group name",
+      "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
     "monitors-list": {
       "monitor-name": "Monitor Name",
