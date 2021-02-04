@@ -43,6 +43,7 @@ import { MonitorService } from './services/monitor.service';
 import { ChartService } from './services/chart.service';
 import { EmailService } from './services/email.service';
 import { LockService } from './services/lock.service';
+import { CommonService } from './services/common.service';
 import { SpcTranslateLoaderModel } from './domain/spc-translate-loader.model';
 import { assetUrl } from '../single-spa/asset-url';
 
@@ -106,6 +107,13 @@ export function createSpcLocalStorageTranslateLoader(translationService: SpcTran
     ChartService,
     EmailService,
     LockService,
+    CommonService,
+    {
+      provide: 'BASE_CONFIG',
+      useValue: {
+        uri: 'http://localhost:8080'
+      }
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [
