@@ -321,4 +321,10 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
     this.formState = FormState.add;
     console.log('monitor-group-list openForm...');
   }
+
+  onCloseForm() {
+    this.showForm = false;
+    this.monitorGroup = null;
+    this.monitorGroupsTable.filters.focusFirstFilter();
+  }
 }

@@ -1,1 +1,8 @@
-<p>monitor-group-details-form works!</p>
+<app-aside-togglable
+  class="columns-2"
+  [openAside]="true"
+  titleLabel="{{asideTitle | translate}}"
+  [showLoading]="true"
+  [showAsideList]="false"
+  (closeClick)="closeForm()"
+></app-aside-togglable>

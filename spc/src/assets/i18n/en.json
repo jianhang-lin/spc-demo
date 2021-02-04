@@ -7,7 +7,8 @@
         "add-monitor-group": "ADD MONITOR GROUP"
       },
       "edit-monitor-group-title-label": "edit monitor group",
-      "add-monitor-group-title-label": "add monitor group"
+      "add-monitor-group-title-label": "add monitor group",
+      "add-monitor-group-cancel-message": "Are you sure you want to cancel add monitor group?"
     },
     "monitor-groups-list": {
       "group-name": "Group Name",

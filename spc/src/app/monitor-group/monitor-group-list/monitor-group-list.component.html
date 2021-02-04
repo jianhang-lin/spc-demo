@@ -5,6 +5,7 @@
     *ngIf="showForm"
     [monitorGroup]="monitorGroup"
     [formState]="formState"
+    (doCloseForm)="onCloseForm()"
   ></spc-monitor-group-details-form>
 
   <div class="table-actions">

@@ -1,6 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { ConfirmationService } from 'primeng/api';
 import { CommonService } from '../../services/common.service';
 import { MonitorGroupForm } from './monitor-group.form';
 import { FormState } from '../../domain/form-state.model';
@@ -20,6 +21,7 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   @Input() showForm: boolean;
   @Input() formState: FormState;
   @Input() monitorGroup: MonitorGroup;
+  @Output() doCloseForm: EventEmitter<any> = new EventEmitter<any>();
   is42qAdmin: boolean;
   is42qSite: boolean;
   asideTitle: string;
@@ -29,12 +31,14 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   monitorGroupForm: MonitorGroupForm;
   showLoading: boolean;
   hasCustomLabels: boolean;
+  errorMonitorGroupExists: boolean;
   netUsers: NetUser[];
   timeZonesInfos: TimeZoneInfo[];
   netUsersSubscription: Subscription;
   timeZoneInfosSubscription: Subscription;
   constructor(
     private translateService: TranslateService,
+    private confirmationService: ConfirmationService,
     // private preferencesService: PreferencesService,
     private commonService: CommonService,
   ) { }
@@ -118,5 +122,31 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
       default:
         break;
     }
+  }
+
+  closeForm() {
+    this.formState === FormState.copy ? this.displayCloseFormConfirmationMessage() : this.hideForm();
+  }
+
+  private displayCloseFormConfirmationMessage() {
+    this.confirmationService.confirm({
+      message: this.translateService.instant('spc.monitor-groups.add-monitor-group-cancel-message'),
+      accept: () => {
+        this.hideForm();
+      },
+      reject: () => {
+        event.preventDefault();
+        this.focusOnAside();
+      }
+    });
+  }
+
+  private hideForm() {
+    this.doCloseForm.emit();
+    this.errorMonitorGroupExists = false;
+  }
+
+  focusOnAside() {
+    // this.assignUsersButton ? this.assignUsersButton.nativeElement.focus() : this.customersDropdown.focusInput();
   }
 }
