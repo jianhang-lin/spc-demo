@@ -34,8 +34,9 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   showLoading: boolean;
   hasCustomLabels: boolean;
   errorMonitorGroupExists: boolean;
-  netUsers: NetUser[];
+  netUserOptions: Array<NetUser>;
   dataSourceTypeOptions: Array<DataSourceTypeOption>;
+  selectedNetUserOption: NetUser;
   selectedDataSourceTypeOption: DataSourceTypeOption;
   timeZonesInfos: TimeZoneInfo[];
   netUsersSubscription: Subscription;
@@ -53,9 +54,13 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
     this.monitorGroupForm = new MonitorGroupForm();
     this.dataSourceTypeOptionsSubscription = this.monitorGroupService.getDataSourceTypeOptions().subscribe(dataSourceTypeOptions => {
         this.dataSourceTypeOptions = dataSourceTypeOptions;
-        this.selectedDataSourceTypeOption = dataSourceTypeOptions[0];
+        // this.selectedDataSourceTypeOption = dataSourceTypeOptions[0];
       }
     );
+    this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
+      this.netUserOptions = netUsers;
+      // this.selectedNetUserOption = netUsers[0];
+    });
     this.getLoggedUserInfo();
     this.openForm();
     this.getTreeWidgetPermissions();
@@ -110,9 +115,8 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
   private getNetUsers() {
     this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
-      this.netUsers = netUsers;
+      this.netUserOptions = netUsers;
     });
-    console.log(JSON.stringify(this.netUsers));
   }
 
   private getTimeZones() {

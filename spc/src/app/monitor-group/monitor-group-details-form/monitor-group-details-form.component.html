@@ -30,12 +30,6 @@
     <div class="form-group">
       <label>{{ 'spc.monitor-groups.label.data-source-type' | translate }}</label>
       <span class="required">*</span>
-      <!--<input
-        id="datasourceType"
-        type="text"
-        formControlName="datasourceType"
-        placeholder="{{ 'spc.monitor-groups.label.data-source-type-placeholder' | translate }}"
-      />-->
       <!--[formControl]="monitorGroupForm.controls['datasourceType']"-->
       <app-customized-dropdown
         #dataSourceTypeDropdown
@@ -50,6 +44,27 @@
       ></app-customized-dropdown>
       <customized-is-field-valid
         [displayError]="monitorGroupForm.isFieldRequired('datasourceType')"
+        errorMsg="{{ 'general.error.required' | translate }}"
+      ></customized-is-field-valid>
+    </div>
+
+    <div class="form-group">
+      <label>{{ 'spc.monitor-groups.label.shop-floor-id' | translate }}</label>
+      <span class="required">*</span>
+      <!--[formControl]="monitorGroupForm.controls['datasourceType']"-->
+      <app-customized-dropdown
+        #shopFloorIdDropdown
+        [options]="this.netUserOptions"
+        [selectedOption]="this.selectedNetUserOption"
+        [placeholder]="'spc.monitor-groups.label.shop-floor-id-placeholder' | translate"
+        [optionLabel]="'netUserId'"
+        [showClear]="false"
+        [disabled]="false"
+        [autofocus]="true"
+        formControlName="netUserId"
+      ></app-customized-dropdown>
+      <customized-is-field-valid
+        [displayError]="monitorGroupForm.isFieldRequired('netUserId')"
         errorMsg="{{ 'general.error.required' | translate }}"
       ></customized-is-field-valid>
     </div>

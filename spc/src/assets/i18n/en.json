@@ -11,6 +11,7 @@
         "data-source-type": "Data Source Type",
         "data-source-type-placeholder": "Please select data source type",
         "shop-floor-id": "Shop Floor ID",
+        "shop-floor-id-placeholder": "Please select shop floor ID",
         "shop-floor-timezone": "Shop Floor Timezone",
         "description": "Description"
       },

@@ -19,7 +19,7 @@ export class MonitorGroupForm extends FormGroup {
           id: new FormControl(monitorGroup && monitorGroup.id ? monitorGroup.id : null),
           mdsUrl: new FormControl(monitorGroup && monitorGroup.mdsUrl ? monitorGroup.mdsUrl : ''),
           name: new FormControl(monitorGroup && monitorGroup.name ? monitorGroup.name : '', [Validators.required]),
-          netUserId: new FormControl(monitorGroup && monitorGroup.netUserId ? monitorGroup.netUserId : ''),
+          netUserId: new FormControl(monitorGroup && monitorGroup.netUserId ? monitorGroup.netUserId : '', [Validators.required]),
           offSet: new FormControl(monitorGroup && monitorGroup.offSet ? monitorGroup.offSet : null),
           plant: new FormControl(monitorGroup && monitorGroup.plant ? monitorGroup.plant : ''),
           sendMds: new FormControl(monitorGroup && monitorGroup.sendMds ? monitorGroup.sendMds : false),
