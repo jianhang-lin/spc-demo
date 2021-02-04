@@ -9,7 +9,7 @@
         "group-name": "Group Name",
         "group-name-placeholder": "Insert here group name",
         "data-source-type": "Data Source Type",
-        "data-source-type-placeholder": "Insert here data source type",
+        "data-source-type-placeholder": "Please select data source type",
         "shop-floor-id": "Shop Floor ID",
         "shop-floor-timezone": "Shop Floor Timezone",
         "description": "Description"

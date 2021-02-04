@@ -9,6 +9,8 @@ import { TimeZoneInfo } from '../../domain/time-zone-info.model';
 import { NetUser } from '../../domain/net-user.model';
 import { MonitorGroup } from '../../domain/monitor-group.model';
 import { MonitorGroupTabs } from '../../domain/monitor-group-tabs.model';
+import { MonitorGroupService } from '../../services/monitor-group.service';
+import { DataSourceTypeOption } from '../../domain/data-source-type-option.model';
 
 @Component({
   selector: 'spc-monitor-group-details-form',
@@ -33,18 +35,27 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   hasCustomLabels: boolean;
   errorMonitorGroupExists: boolean;
   netUsers: NetUser[];
+  dataSourceTypeOptions: Array<DataSourceTypeOption>;
+  selectedDataSourceTypeOption: DataSourceTypeOption;
   timeZonesInfos: TimeZoneInfo[];
   netUsersSubscription: Subscription;
   timeZoneInfosSubscription: Subscription;
+  dataSourceTypeOptionsSubscription: Subscription;
   constructor(
     private translateService: TranslateService,
     private confirmationService: ConfirmationService,
     // private preferencesService: PreferencesService,
     private commonService: CommonService,
+    private monitorGroupService: MonitorGroupService,
   ) { }
 
   ngOnInit() {
     this.monitorGroupForm = new MonitorGroupForm();
+    this.dataSourceTypeOptionsSubscription = this.monitorGroupService.getDataSourceTypeOptions().subscribe(dataSourceTypeOptions => {
+        this.dataSourceTypeOptions = dataSourceTypeOptions;
+        this.selectedDataSourceTypeOption = dataSourceTypeOptions[0];
+      }
+    );
     this.getLoggedUserInfo();
     this.openForm();
     this.getTreeWidgetPermissions();
@@ -52,6 +63,9 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.dataSourceTypeOptionsSubscription) {
+      this.dataSourceTypeOptionsSubscription.unsubscribe();
+    }
     if (this.netUsersSubscription) {
       this.netUsersSubscription.unsubscribe();
     }

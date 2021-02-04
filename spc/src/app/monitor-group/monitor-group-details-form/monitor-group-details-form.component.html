@@ -30,12 +30,24 @@
     <div class="form-group">
       <label>{{ 'spc.monitor-groups.label.data-source-type' | translate }}</label>
       <span class="required">*</span>
-      <input
+      <!--<input
         id="datasourceType"
         type="text"
         formControlName="datasourceType"
         placeholder="{{ 'spc.monitor-groups.label.data-source-type-placeholder' | translate }}"
-      />
+      />-->
+      <!--[formControl]="monitorGroupForm.controls['datasourceType']"-->
+      <app-customized-dropdown
+        #dataSourceTypeDropdown
+        [options]="this.dataSourceTypeOptions"
+        [selectedOption]="this.selectedDataSourceTypeOption"
+        [placeholder]="'spc.monitor-groups.label.data-source-type-placeholder' | translate"
+        [optionLabel]="'name'"
+        [showClear]="false"
+        [disabled]="false"
+        [autofocus]="true"
+        formControlName="datasourceType"
+      ></app-customized-dropdown>
       <customized-is-field-valid
         [displayError]="monitorGroupForm.isFieldRequired('datasourceType')"
         errorMsg="{{ 'general.error.required' | translate }}"

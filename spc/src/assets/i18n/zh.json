@@ -9,7 +9,7 @@
         "group-name": "组名",
         "group-name-placeholder": "插入组名",
         "data-source-type": "数据源类型",
-        "data-source-type-placeholder": "插入数据源类型",
+        "data-source-type-placeholder": "请选择数据源类型",
         "shop-floor-id": "车间编号",
         "shop-floor-timezone": "车间时区",
         "description": "描述"
