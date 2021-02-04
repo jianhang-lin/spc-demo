@@ -1,12 +1,12 @@
 <ng-container>
 
-  <spc-monitor-group-details-form></spc-monitor-group-details-form>
+  <spc-monitor-group-details-form #addMonitorGroup ></spc-monitor-group-details-form>
 
   <div class="table-actions">
     <button #goToFunctionHomePageButton class="spc-button-link" (click)="onGoToFunctionPage($event)">
       {{ 'spc.monitor-groups.label.go-to-function-home-page' | translate }}
     </button>
-    <button #addMonitorGroupButton class="button-add" (click)="openForm()">
+    <button #addMonitorGroupButton class="button-add" (click)="openForm(null)">
       {{ 'spc.monitor-groups.label.add-monitor-group' | translate }}
     </button>
   </div>

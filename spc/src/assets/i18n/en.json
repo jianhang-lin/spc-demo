@@ -5,7 +5,9 @@
       "label": {
         "go-to-function-home-page": "GO TO FUNCTION HOME",
         "add-monitor-group": "ADD MONITOR GROUP"
-      }
+      },
+      "edit-monitor-group-title-label": "edit monitor group",
+      "add-monitor-group-title-label": "add monitor group"
     },
     "monitor-groups-list": {
       "group-name": "Group Name",

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { Column } from 'shared-ui';
 import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
+import { MonitorGroupDetailsFormComponent } from '../monitor-group-details-form/monitor-group-details-form.component';
 import { ConfirmationService } from 'primeng/api';
 import { HomeService } from '../../services/home.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
@@ -18,6 +19,8 @@ import {
 import { Customer } from '../../domain/list-user.model';
 import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
 import { HomePageBuilder } from '../../domain/home-page.model';
+import { MonitorGroup } from '../../domain/monitor-group.model';
+import { MonitorGroupTabs } from '../../domain/monitor-group-tabs.model';
 
 export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
@@ -32,6 +35,7 @@ export enum UserDetailsType {
 export class MonitorGroupListComponent implements OnInit, AfterViewInit {
 
   @ViewChild('monitorGroupsTable', { static: false }) monitorGroupsTable: CustomizedTableComponent;
+  @ViewChild('addMonitorGroup', { static: false }) addMonitorGroup: MonitorGroupDetailsFormComponent;
   @ViewChild('goToFunctionHomePageButton', { static: false }) goToFunctionHomePageButton: ElementRef;
   @ViewChild('addMonitorGroupButton', { static: false }) addMonitorGroupButton: ElementRef;
   tableData = [];
@@ -310,7 +314,11 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openForm() {
-    console.log('onpenForm');
+  openForm(monitorGroup: MonitorGroup, tabType?: MonitorGroupTabs) {
+    console.log('list openForm');
+    this.addMonitorGroup.openForm(monitorGroup, tabType);
+    setTimeout(() => {
+      this.addMonitorGroup.initializeForm();
+    });
   }
 }

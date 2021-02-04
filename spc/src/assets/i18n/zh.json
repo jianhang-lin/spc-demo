@@ -5,7 +5,9 @@
       "label": {
         "go-to-function-home-page": "跳转到功能列表",
         "add-monitor-group": "新增监控组"
-      }
+      },
+      "edit-monitor-group-title-label": "编辑监控组",
+      "add-monitor-group-title-label": "新增监控组"
     },
     "monitor-groups-list": {
       "group-name": "组名",
