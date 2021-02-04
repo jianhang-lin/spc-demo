@@ -2,7 +2,44 @@
   class="columns-2"
   [openAside]="true"
   titleLabel="{{asideTitle | translate}}"
-  [showLoading]="true"
+  [showLoading]="netUsers?.length === 0 || timeZonesInfos?.length === 0"
   [showAsideList]="false"
   (closeClick)="closeForm()"
-></app-aside-togglable>
+>
+  <div #formMonitorGroup class="monitorGroupForm-section" [formGroup]="monitorGroupForm">
+    <div class="monitorGroupForm-header">
+      <h3>{{ 'spc.monitor-groups.label.monitor-group-information' | translate }}</h3>
+    </div>
+
+    <div class="form-group">
+      <label>{{ 'spc.monitor-groups.label.group-name' | translate }}</label>
+      <span class="required">*</span>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        maxlength="128"
+        placeholder="{{ 'spc.monitor-groups.label.group-name-placeholder' | translate }}"
+      />
+      <customized-is-field-valid
+        [displayError]="monitorGroupForm.isFieldRequired('name')"
+        errorMsg="{{ 'general.error.required' | translate }}"
+      ></customized-is-field-valid>
+    </div>
+
+    <div class="form-group">
+      <label>{{ 'spc.monitor-groups.label.data-source-type' | translate }}</label>
+      <span class="required">*</span>
+      <input
+        id="datasourceType"
+        type="text"
+        formControlName="datasourceType"
+        placeholder="{{ 'spc.monitor-groups.label.data-source-type-placeholder' | translate }}"
+      />
+      <customized-is-field-valid
+        [displayError]="monitorGroupForm.isFieldRequired('datasourceType')"
+        errorMsg="{{ 'general.error.required' | translate }}"
+      ></customized-is-field-valid>
+    </div>
+  </div>
+</app-aside-togglable>

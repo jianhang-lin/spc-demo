@@ -4,7 +4,15 @@
     "monitor-groups": {
       "label": {
         "go-to-function-home-page": "GO TO FUNCTION HOME",
-        "add-monitor-group": "ADD MONITOR GROUP"
+        "add-monitor-group": "ADD MONITOR GROUP",
+        "monitor-group-information": "Monitor Group Information",
+        "group-name": "Group Name",
+        "group-name-placeholder": "Insert here group name",
+        "data-source-type": "Data Source Type",
+        "data-source-type-placeholder": "Insert here data source type",
+        "shop-floor-id": "Shop Floor ID",
+        "shop-floor-timezone": "Shop Floor Timezone",
+        "description": "Description"
       },
       "edit-monitor-group-title-label": "edit monitor group",
       "add-monitor-group-title-label": "add monitor group",
@@ -16,7 +24,7 @@
       "sfdc-timezone": "Shop Floor Timezone",
       "net-user-id": "Shop Floor ID",
       "mds-url": "MDS URL/SFDC Web Service URL",
-      "icon": "icon",
+      "icon": "Icon",
       "search-by-group-name": "Search by group name",
       "confirm-go-to-function-home-page-message": "Are you sure you want go to function page?"
     },
@@ -106,6 +114,9 @@
       "rows": "Rows",
       "page": "Page",
       "of-many": "Many"
+    },
+    "error": {
+      "required": "Required field"
     }
   }
 }

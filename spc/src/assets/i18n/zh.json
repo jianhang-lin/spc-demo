@@ -4,7 +4,15 @@
     "monitor-groups": {
       "label": {
         "go-to-function-home-page": "跳转到功能列表",
-        "add-monitor-group": "新增监控组"
+        "add-monitor-group": "新增监控组",
+        "monitor-group-information": "监控组信息",
+        "group-name": "组名",
+        "group-name-placeholder": "插入组名",
+        "data-source-type": "数据源类型",
+        "data-source-type-placeholder": "插入数据源类型",
+        "shop-floor-id": "车间编号",
+        "shop-floor-timezone": "车间时区",
+        "description": "描述"
       },
       "edit-monitor-group-title-label": "编辑监控组",
       "add-monitor-group-title-label": "新增监控组",
@@ -106,6 +114,9 @@
       "rows": "行",
       "page": "页",
       "of-many": "更多"
+    },
+    "error": {
+      "required": "必填"
     }
   }
 }

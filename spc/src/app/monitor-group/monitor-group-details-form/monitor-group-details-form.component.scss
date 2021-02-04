@@ -1,0 +1,124 @@
+$theme: default;
+@import '/home/grant/Web/spc-demo/spc/node_modules/shared-ui/shared-scss/scss/dependencies';
+
+.monitorGroupForm {
+  @include form;
+  padding-bottom: 60px;
+
+  &-header {
+    width: 100%;
+    font-weight: 900;
+    text-transform: capitalize;
+    padding: $grid-gutter-width / 2 $grid-gutter-width / 2 $grid-gutter-width;
+    position: relative;
+  }
+
+  &-assign {
+    @include position(absolute, 5px $grid-gutter-width / 2 null null);
+    @include button(
+      $size: $xxs-button-size,
+      $icon: people-fill,
+      $text-color: $secondary,
+      $fill-color: $secondary-sidebar-button-color
+    )
+  }
+
+  &-section {
+
+    ::ng-deep .form-group {
+
+      .searchableDropdown-input .emptyFilter {
+        top: 17px;
+      }
+
+      input.ng-invalid.ng-touched {
+        border-color: transparentize($light, 0.5) !important;
+      }
+    }
+  }
+
+  &-permisions {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $grid-gutter-width / 2;
+    width: 100%;
+  }
+
+  &-column {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      border: 0;
+    }
+
+    position: relative;
+    width: 50%;
+    background-color: transparentize($light, 0.9);
+    border-right: 1px solid transparentize($light, 0.7);
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    &Content {
+      padding: $grid-gutter-width / 2;
+
+
+    }
+  }
+
+  &-checkbox {
+    @include position(absolute, $grid-gutter-width / 2 $grid-gutter-width / 3 null null);
+    font-size: $font-size-xs;
+
+    ::ng-deep .ui-chkbox {
+      @include checkbox($size: 14px);
+      top: 1px;
+
+      &-label {
+        padding-left: 7px;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &-actions {
+    @include position(absolute, null 0 0);
+
+    &-left {
+      @include position(absolute, $grid-gutter-width / 2 null null $grid-gutter-width);
+
+      @include media-breakpoint-down(sm) {
+        top: -79px;
+        right: $grid-gutter-width;
+        display: flex;
+
+        button {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .aside {
+
+  ::ng-deep app-customized-table {
+
+    ::ng-deep .ui-table {
+      bottom: 35px;
+    }
+
+    + ::ng-deep app-customized-alert {
+      bottom: 0 !important;
+    }
+  }
+}
+
+::ng-deep app-customized-alert {
+  @include position(absolute, null 0 70px 0);
+}
+
+.tree-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
