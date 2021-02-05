@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { isNull} from 'util';
@@ -7,6 +7,7 @@ import { ActionType, Column } from 'shared-ui';
 import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
 import { MonitorGroupDetailsFormComponent } from '../monitor-group-details-form/monitor-group-details-form.component';
 import { ConfirmationService } from 'primeng/api';
+import { CommonService } from '../../services/common.service';
 import { HomeService } from '../../services/home.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
 import { monitorGroupsColumns42QAdmin, monitorGroupsColumnsSite } from '../monitor-groups-list.columns';
@@ -21,6 +22,9 @@ import { FormState } from '../../domain/form-state.model';
 import { HomePageBuilder } from '../../domain/home-page.model';
 import { MonitorGroup } from '../../domain/monitor-group.model';
 import { MonitorGroupsList } from '../../domain/monitor-groups-list.model';
+import { NetUser } from '../../domain/net-user.model';
+import { DataSourceTypeOption } from '../../domain/data-source-type-option.model';
+import { TimeZoneInfo } from '../../domain/time-zone-info.model';
 
 export enum UserDetailsType {
   FEDERATED = 'FEDERATED',
@@ -32,7 +36,7 @@ export enum UserDetailsType {
   templateUrl: './monitor-group-list.component.html',
   styleUrls: ['./monitor-group-list.component.scss']
 })
-export class MonitorGroupListComponent implements OnInit, AfterViewInit {
+export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('monitorGroupsTable', { static: false }) monitorGroupsTable: CustomizedTableComponent;
   @ViewChild('addMonitorGroup', { static: false }) addMonitorGroup: MonitorGroupDetailsFormComponent;
@@ -61,10 +65,17 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
   filterByPlant;
   filterByCustomer;
   monitorGroupListSubscription: Subscription;
+  netUserOptions: Array<NetUser>;
+  dataSourceTypeOptions: Array<DataSourceTypeOption>;
+  timeZonesInfoOptions: Array<TimeZoneInfo>;
+  netUsersSubscription: Subscription;
+  timeZoneInfosSubscription: Subscription;
+  dataSourceTypeOptionsSubscription: Subscription;
   constructor(
     private httpClient: HttpClient,
     private translateService: TranslateService,
     private confirmationService: ConfirmationService,
+    private commonService: CommonService,
     private homeService: HomeService,
     private monitorGroupService: MonitorGroupService,
   ) {
@@ -75,10 +86,25 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.getLoggedUserInfo();
     // this.loadDataSearchRequest();
+    this.subscribeDataSourceTypeOptions();
+    this.subscribeNetUsersOptions();
+    this.subscribeTimeZoneInfoOptions();
   }
 
   ngAfterViewInit(): void {
     // document.getElementsByTagName(MonitorGroupListComponent.ROOT_SELECTOR)[0].parentElement.firstElementChild.remove();
+  }
+
+  ngOnDestroy(): void {
+    if (this.dataSourceTypeOptionsSubscription) {
+      this.dataSourceTypeOptionsSubscription.unsubscribe();
+    }
+    if (this.netUsersSubscription) {
+      this.netUsersSubscription.unsubscribe();
+    }
+    if (this.timeZoneInfosSubscription) {
+      this.timeZoneInfosSubscription.unsubscribe();
+    }
   }
 
   getLoggedUserInfo() {
@@ -91,6 +117,26 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
       monitorGroupsColumns42QAdmin : monitorGroupsColumnsSite;
     this.setDefaultFilters();
     this.setAvailableFilters();
+  }
+
+  subscribeDataSourceTypeOptions() {
+    this.dataSourceTypeOptionsSubscription = this.monitorGroupService.getDataSourceTypeOptions().subscribe(dataSourceTypeOptions => {
+        this.dataSourceTypeOptions = dataSourceTypeOptions;
+      }
+    );
+  }
+
+  subscribeNetUsersOptions() {
+    this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
+      this.netUserOptions = netUsers;
+      // this.selectedNetUserOption = netUsers[0];
+    });
+  }
+
+  subscribeTimeZoneInfoOptions() {
+    this.timeZoneInfosSubscription = this.commonService.getTimeZoneInfos().subscribe(timeZoneInfos => {
+      this.timeZonesInfoOptions = timeZoneInfos;
+    });
   }
 
   getDropdownOptions() {

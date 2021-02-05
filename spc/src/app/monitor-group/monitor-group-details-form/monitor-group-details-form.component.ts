@@ -27,6 +27,9 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   @Input() showForm: boolean;
   @Input() formState: FormState;
   @Input() monitorGroup: MonitorGroup;
+  @Input() dataSourceTypeOptions: Array<DataSourceTypeOption>;
+  @Input() netUserOptions: Array<NetUser>;
+  @Input() timeZonesInfoOptions: Array<TimeZoneInfo>;
   @Output() doCloseForm: EventEmitter<any> = new EventEmitter<any>();
   is42qAdmin: boolean;
   is42qSite: boolean;
@@ -38,15 +41,9 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   showLoading: boolean;
   hasCustomLabels: boolean;
   errorMonitorGroupExists: boolean;
-  netUserOptions: Array<NetUser>;
-  dataSourceTypeOptions: Array<DataSourceTypeOption>;
-  timeZonesInfoOptions: Array<TimeZoneInfo>;
   selectedNetUserOption: NetUser;
   selectedDataSourceTypeOption: DataSourceTypeOption;
   selectedTimeZoneInfoOption: TimeZoneInfo;
-  netUsersSubscription: Subscription;
-  timeZoneInfosSubscription: Subscription;
-  dataSourceTypeOptionsSubscription: Subscription;
   state = FormState;
   constructor(
     private translateService: TranslateService,
@@ -58,19 +55,6 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.monitorGroupForm = new MonitorGroupForm();
-    this.dataSourceTypeOptionsSubscription = this.monitorGroupService.getDataSourceTypeOptions().subscribe(dataSourceTypeOptions => {
-        this.dataSourceTypeOptions = dataSourceTypeOptions;
-        // this.selectedDataSourceTypeOption = dataSourceTypeOptions[0];
-      }
-    );
-    this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
-      this.netUserOptions = netUsers;
-      // this.selectedNetUserOption = netUsers[0];
-    });
-    this.timeZoneInfosSubscription = this.commonService.getTimeZoneInfos().subscribe(timeZoneInfos => {
-      this.timeZonesInfoOptions = timeZoneInfos;
-      this.selectedTimeZoneInfoOption = timeZoneInfos[0];
-    });
     this.getLoggedUserInfo();
     this.openForm();
     this.getTreeWidgetPermissions();
@@ -78,15 +62,6 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.dataSourceTypeOptionsSubscription) {
-      this.dataSourceTypeOptionsSubscription.unsubscribe();
-    }
-    if (this.netUsersSubscription) {
-      this.netUsersSubscription.unsubscribe();
-    }
-    if (this.timeZoneInfosSubscription) {
-      this.timeZoneInfosSubscription.unsubscribe();
-    }
   }
 
   getLoggedUserInfo() {
@@ -126,7 +101,7 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   private setDropdownsValues(dataSourceType, shopFloorId, shopFloorTimezone) {
     this.dataSourceTypeDropdown.selectedOption = this.dataSourceTypeOptions.find(element => element.name === dataSourceType);
     this.shopFloorIdDropdown.selectedOption = this.netUserOptions.find(element => element.netUserId === shopFloorId);
-    this.shopFloorTimezoneDropdown.selectedOption = this.timeZonesInfoOptions.find(element => element.fullTime === shopFloorTimezone);
+    this.shopFloorTimezoneDropdown.selectedOption = this.timeZonesInfoOptions.find(element => element.timeZone === shopFloorTimezone);
   }
 
   private checkIfExistingCustomLabels() {
@@ -141,15 +116,15 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   }
 
   private getNetUsers() {
-    this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
+    /*this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
       this.netUserOptions = netUsers;
-    });
+    });*/
   }
 
   private getTimeZones() {
-    this.timeZoneInfosSubscription = this.commonService.getTimeZoneInfos().subscribe(timeZoneInfos => {
+    /*this.timeZoneInfosSubscription = this.commonService.getTimeZoneInfos().subscribe(timeZoneInfos => {
       this.timeZonesInfoOptions = timeZoneInfos;
-    });
+    });*/
   }
 
   private setAsideTitle() {

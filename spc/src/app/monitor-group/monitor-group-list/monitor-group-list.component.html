@@ -1,6 +1,9 @@
 <spc-monitor-group-details-form
   #monitorGroupForm
   *ngIf="showForm"
+  [dataSourceTypeOptions]="dataSourceTypeOptions"
+  [netUserOptions]="netUserOptions"
+  [timeZonesInfoOptions]="timeZonesInfoOptions"
   [monitorGroup]="monitorGroup"
   [formState]="formState"
   (doCloseForm)="onCloseForm()"
