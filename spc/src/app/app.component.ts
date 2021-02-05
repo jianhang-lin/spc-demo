@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.initSpcBanner();
     this.initDefaultHomePage();
     this.currentHomePageSubscription = this.homeService.currentHomePageSubject.subscribe(currentHomePage => {
       this.homePage = currentHomePage;
@@ -41,6 +42,15 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+  }
+
+  initSpcBanner() {
+    console.log('  _________   _____    _______      _____  .___ _______      _____      ____________________________\n');
+    console.log(' /   _____/  /  _  \\   \\      \\    /     \\ |   |\\      \\    /  _  \\    /   _____/\\______   \\_   ___ \\\n');
+    console.log(' \\_____  \\  /  /_\\  \\  /   |   \\  /  \\ /  \\|   |/   |   \\  /  /_\\  \\   \\_____  \\  |     ___/    \\  \\/\n');
+    console.log(' /        \\/    |    \\/    |    \\/    Y    \\   /    |    \\/    |    \\  /        \\ |    |   \\     \\____\n');
+    console.log('/_______  /\\____|__  /\\____|__  /\\____|__  /___\\____|__  /\\____|__  / /_______  / |____|    \\______  /\n');
+    console.log('        \\/         \\/         \\/         \\/            \\/         \\/          \\/                   \\/\n');
   }
 
   initDefaultHomePage() {
