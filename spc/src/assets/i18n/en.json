@@ -14,7 +14,8 @@
         "shop-floor-id-placeholder": "Please select shop floor ID",
         "shop-floor-timezone": "Shop Floor Timezone",
         "shop-floor-timezone-placeholder": "Please select shop floor timezone",
-        "description": "Description"
+        "description": "Description",
+        "description-placeholder": "Insert description"
       },
       "edit-monitor-group-title-label": "edit monitor group",
       "add-monitor-group-title-label": "add monitor group",
