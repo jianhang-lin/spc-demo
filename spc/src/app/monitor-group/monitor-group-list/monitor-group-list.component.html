@@ -35,7 +35,7 @@
   [availableActions]="availableTableActions"
   [alwaysShowPaginator]="true"
   [defaultSortOrder]="1"
-  (actionSelected)="handleSelectedAction($event)"
+  (actionSelected)="onSelectedAction($event)"
   (lazyLoad)="onLazyLoad($event)"
   (selectFilterColumns)="getSelectedFilters($event)"
   (changeAutocompleteFilter)="onChangeAutocompleteFilter($event)"

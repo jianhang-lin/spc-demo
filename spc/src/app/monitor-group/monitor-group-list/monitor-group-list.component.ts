@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { isNull} from 'util';
 import { Subscription } from 'rxjs';
-import { Column } from 'shared-ui';
+import { ActionType, Column } from 'shared-ui';
 import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
 import { MonitorGroupDetailsFormComponent } from '../monitor-group-details-form/monitor-group-details-form.component';
 import { ConfirmationService } from 'primeng/api';
@@ -191,7 +191,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
       : (searchRequest.paginationDirectives.page + 1) * searchRequest.paginationDirectives.size;
   }
 
-  handleSelectedAction(event) {
+  onSelectedAction(event) {
     /*const actionUserListIds = this.getActionUserListIds(event[1]);
     if (event[0] === ActionType.changePass) {
       this.changePassword.openAside(event[1]);
@@ -199,13 +199,34 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
       this.handleActivateConfirmation(actionUserListIds);
     } else if (event[0] === ActionType.deactivate) {
       this.handleDeactivateConfirmation(actionUserListIds);
-    } else if (event[0] === ActionType.edit) {
-      this.handleEditUser(event[1]);
     } else if (event[0] === ActionType.impersonate) {
       this.handleImpersonateUser(event[1]);
     } else if (event[0] === ActionType.view) {
       this.handleViewUser(event[1]);
     }*/
+    switch (event[0]) {
+      case ActionType.edit:
+        this.editMonitorGroup(event[1][0]);
+        break;
+      case ActionType.delete:
+        // this.deleteProfile(event[1][0]);
+        break;
+      case ActionType.copy:
+        // this.copyProfile(event[1][0]);
+        break;
+      case ActionType.view:
+        // this.viewProfile(event[1][0]);
+        break;
+      case ActionType.edit_as_view:
+        // this.viewProfile(event[1][0]);
+        break;
+    }
+  }
+
+  editMonitorGroup(monitorGroup) {
+    this.monitorGroup = monitorGroup;
+    this.showForm = true;
+    this.formState = FormState.edit;
   }
 
   getSelectedFilters(selectedFilters) {

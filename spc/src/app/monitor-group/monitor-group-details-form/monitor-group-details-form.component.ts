@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { CustomizedDropdownComponent } from 'shared-ui/lib/components/primeng/customized-dropdown/customized-dropdown.component';
 import { ConfirmationService } from 'primeng/api';
 import { CommonService } from '../../services/common.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
@@ -19,6 +20,9 @@ import { DataSourceTypeOption } from '../../domain/data-source-type-option.model
 })
 export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
+  @ViewChild('dataSourceTypeDropdown', { static: false }) dataSourceTypeDropdown: CustomizedDropdownComponent;
+  @ViewChild('shopFloorIdDropdown', { static: false }) shopFloorIdDropdown: CustomizedDropdownComponent;
+  @ViewChild('shopFloorTimezoneDropdown', { static: false }) shopFloorTimezoneDropdown: CustomizedDropdownComponent;
   @Input() titleLabel: string;
   @Input() showForm: boolean;
   @Input() formState: FormState;
@@ -92,7 +96,7 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
   openForm() {
     if (this.monitorGroup && this.formState !== FormState.add) {
-      this.initializeEditForm();
+      this.initializeEditForm(this.monitorGroup);
       return;
     }
     if (this.is42qSite) {
@@ -104,8 +108,25 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
   }
 
-  public initializeEditForm() {
+  public initializeEditForm(monitorGroup?: MonitorGroup) {
     console.log('initializeEditForm');
+    setTimeout(() => {
+      this.monitorGroupForm = new MonitorGroupForm(monitorGroup, this.formState);
+      if (this.formState === FormState.copy) {
+        // this.profileForm.get('profileName').setValue('Copy of ' + profile.profileName);
+      }
+      this.setDropdownsValues(monitorGroup.datasourceType, monitorGroup.netUserId, monitorGroup.sfdcTimezone);
+      // this.getTreeMenuItemsForSite(profile.siteDto.id);
+      setTimeout(() => {
+        // this.checkForEditPermission();
+      });
+    });
+  }
+
+  private setDropdownsValues(dataSourceType, shopFloorId, shopFloorTimezone) {
+    this.dataSourceTypeDropdown.selectedOption = this.dataSourceTypeOptions.find(element => element.name === dataSourceType);
+    this.shopFloorIdDropdown.selectedOption = this.netUserOptions.find(element => element.netUserId === shopFloorId);
+    this.shopFloorTimezoneDropdown.selectedOption = this.timeZonesInfoOptions.find(element => element.fullTime === shopFloorTimezone);
   }
 
   private checkIfExistingCustomLabels() {
