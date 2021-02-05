@@ -264,7 +264,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
         this.viewMonitorGroup(event[1][0]);
         break;
       case ActionType.edit_as_view:
-        // this.viewProfile(event[1][0]);
+        this.viewMonitorGroup(event[1][0]);
         break;
     }
   }
