@@ -261,7 +261,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
         // this.copyProfile(event[1][0]);
         break;
       case ActionType.view:
-        // this.viewProfile(event[1][0]);
+        this.viewMonitorGroup(event[1][0]);
         break;
       case ActionType.edit_as_view:
         // this.viewProfile(event[1][0]);
@@ -273,6 +273,12 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
     this.monitorGroup = monitorGroup;
     this.showForm = true;
     this.formState = FormState.edit;
+  }
+
+  viewMonitorGroup(monitorGroup) {
+    this.monitorGroup = monitorGroup;
+    this.showForm = true;
+    this.formState = FormState.view;
   }
 
   getSelectedFilters(selectedFilters) {
