@@ -13,6 +13,7 @@
         "shop-floor-id": "Shop Floor ID",
         "shop-floor-id-placeholder": "Please select shop floor ID",
         "shop-floor-timezone": "Shop Floor Timezone",
+        "shop-floor-timezone-placeholder": "Please select shop floor timezone",
         "description": "Description"
       },
       "edit-monitor-group-title-label": "edit monitor group",

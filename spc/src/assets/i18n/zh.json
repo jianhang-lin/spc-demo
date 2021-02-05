@@ -13,6 +13,7 @@
         "shop-floor-id": "车间编号",
         "shop-floor-id-placeholder": "请选择车间编号",
         "shop-floor-timezone": "车间时区",
+        "shop-floor-timezone-placeholder": "请选择车间时区",
         "description": "描述"
       },
       "edit-monitor-group-title-label": "编辑监控组",

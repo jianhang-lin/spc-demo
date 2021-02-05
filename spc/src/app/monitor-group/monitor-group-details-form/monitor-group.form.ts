@@ -26,7 +26,7 @@ export class MonitorGroupForm extends FormGroup {
           sendMfg: new FormControl(monitorGroup && monitorGroup.sendMfg ? monitorGroup.sendMfg : false),
           sendSfdc: new FormControl(monitorGroup && monitorGroup.sendSfdc ? monitorGroup.sendSfdc : false),
           sfdcIp: new FormControl(monitorGroup && monitorGroup.sfdcIp ? monitorGroup.sfdcIp : ''),
-          sfdcTimezone: new FormControl(monitorGroup && monitorGroup.sfdcTimezone ? monitorGroup.sfdcTimezone : ''),
+          sfdcTimezone: new FormControl(monitorGroup && monitorGroup.sfdcTimezone ? monitorGroup.sfdcTimezone : '', [Validators.required]),
           sfdcWebService: new FormControl(monitorGroup && monitorGroup.sfdcWebService ? monitorGroup.sfdcWebService : ''),
           position: new FormControl(monitorGroup && monitorGroup.position ? monitorGroup.position : null),
         });

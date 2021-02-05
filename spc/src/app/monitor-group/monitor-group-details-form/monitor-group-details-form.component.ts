@@ -3,13 +3,13 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ConfirmationService } from 'primeng/api';
 import { CommonService } from '../../services/common.service';
+import { MonitorGroupService } from '../../services/monitor-group.service';
 import { MonitorGroupForm } from './monitor-group.form';
 import { FormState } from '../../domain/form-state.model';
 import { TimeZoneInfo } from '../../domain/time-zone-info.model';
 import { NetUser } from '../../domain/net-user.model';
 import { MonitorGroup } from '../../domain/monitor-group.model';
 import { MonitorGroupTabs } from '../../domain/monitor-group-tabs.model';
-import { MonitorGroupService } from '../../services/monitor-group.service';
 import { DataSourceTypeOption } from '../../domain/data-source-type-option.model';
 
 @Component({
@@ -36,9 +36,10 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   errorMonitorGroupExists: boolean;
   netUserOptions: Array<NetUser>;
   dataSourceTypeOptions: Array<DataSourceTypeOption>;
+  timeZonesInfoOptions: Array<TimeZoneInfo>;
   selectedNetUserOption: NetUser;
   selectedDataSourceTypeOption: DataSourceTypeOption;
-  timeZonesInfos: TimeZoneInfo[];
+  selectedTimeZoneInfoOption: TimeZoneInfo;
   netUsersSubscription: Subscription;
   timeZoneInfosSubscription: Subscription;
   dataSourceTypeOptionsSubscription: Subscription;
@@ -60,6 +61,10 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
     this.netUsersSubscription = this.commonService.getNetUsers().subscribe(netUsers => {
       this.netUserOptions = netUsers;
       // this.selectedNetUserOption = netUsers[0];
+    });
+    this.timeZoneInfosSubscription = this.commonService.getTimeZoneInfos().subscribe(timeZoneInfos => {
+      this.timeZonesInfoOptions = timeZoneInfos;
+      this.selectedTimeZoneInfoOption = timeZoneInfos[0];
     });
     this.getLoggedUserInfo();
     this.openForm();
@@ -121,9 +126,8 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
   private getTimeZones() {
     this.timeZoneInfosSubscription = this.commonService.getTimeZoneInfos().subscribe(timeZoneInfos => {
-      this.timeZonesInfos = timeZoneInfos;
+      this.timeZonesInfoOptions = timeZoneInfos;
     });
-    console.log(JSON.stringify(this.timeZonesInfos));
   }
 
   private setAsideTitle() {

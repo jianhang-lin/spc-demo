@@ -2,7 +2,7 @@
   class="columns-2"
   [openAside]="true"
   titleLabel="{{asideTitle | translate}}"
-  [showLoading]="netUsers?.length === 0 || timeZonesInfos?.length === 0"
+  [showLoading]="netUserOptions?.length === 0 || timeZonesInfos?.length === 0"
   [showAsideList]="false"
   (closeClick)="closeForm()"
 >
@@ -51,7 +51,6 @@
     <div class="form-group">
       <label>{{ 'spc.monitor-groups.label.shop-floor-id' | translate }}</label>
       <span class="required">*</span>
-      <!--[formControl]="monitorGroupForm.controls['datasourceType']"-->
       <app-customized-dropdown
         #shopFloorIdDropdown
         [options]="this.netUserOptions"
@@ -65,6 +64,26 @@
       ></app-customized-dropdown>
       <customized-is-field-valid
         [displayError]="monitorGroupForm.isFieldRequired('netUserId')"
+        errorMsg="{{ 'general.error.required' | translate }}"
+      ></customized-is-field-valid>
+    </div>
+
+    <div class="form-group">
+      <label>{{ 'spc.monitor-groups.label.shop-floor-timezone' | translate }}</label>
+      <span class="required">*</span>
+      <app-customized-dropdown
+        #shopFloorIdDropdown
+        [options]="this.timeZonesInfoOptions"
+        [selectedOption]="this.selectedTimeZoneInfoOption"
+        [placeholder]="'spc.monitor-groups.label.shop-floor-timezone-placeholder' | translate"
+        [optionLabel]="'fullTime'"
+        [showClear]="false"
+        [disabled]="false"
+        [autofocus]="true"
+        formControlName="sfdcTimezone"
+      ></app-customized-dropdown>
+      <customized-is-field-valid
+        [displayError]="monitorGroupForm.isFieldRequired('sfdcTimezone')"
         errorMsg="{{ 'general.error.required' | translate }}"
       ></customized-is-field-valid>
     </div>
