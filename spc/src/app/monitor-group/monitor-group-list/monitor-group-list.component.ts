@@ -123,7 +123,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit {
   }
 
   setDefaultFilters() {
-    this.defaultFilters = this.tableColumns.filter((column) => column.field === 'loginId');
+    this.defaultFilters = this.tableColumns.filter((column) => column.field === 'name');
   }
 
   setAvailableFilters() {
