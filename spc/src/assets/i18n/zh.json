@@ -5,6 +5,10 @@
       "label": {
         "go-to-function-home-page": "跳转到功能列表",
         "add-monitor-group": "新增监控组",
+        "view-monitor-group": "查看监控组",
+        "edit-monitor-group": "编辑监控组",
+        "copy-monitor-group": "复制监控组",
+        "delete-monitor-group": "删除监控组",
         "monitor-group-information": "监控组信息",
         "group-name": "组名",
         "group-name-placeholder": "插入组名",

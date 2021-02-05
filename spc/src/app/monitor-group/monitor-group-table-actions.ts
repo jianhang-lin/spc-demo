@@ -30,46 +30,41 @@ export let monitorGroupsEnableActionsRules42Q: Array<EnableActionRule> = [
 ];
 
 export let monitorGroupsTableActions: Array<TableAction> = [
-    {
-        id: ActionType.view,
-        tooltipLabel: 'general.label.view-user',
-        tooltipPosition: TooltipPosition.top,
-        icon: 'icon-eye-fill',
-        // permissions: ['users-list.view-users']
-    },
-    {
-        id: ActionType.edit,
-        tooltipLabel: 'general.label.edit-user',
-        tooltipPosition: TooltipPosition.top,
-        icon: 'icon-edit-fill',
-        // permissions: ['users-list.edit-user']
-    },
-    {
-        id: ActionType.activate,
-        tooltipLabel: 'general.label.activate-user',
-        tooltipPosition: TooltipPosition.top,
-        icon: 'icon-checkmark-circle-fill',
-        // permissions: ['users-list.activate-user']
-    },
-    {
-        id: ActionType.deactivate,
-        tooltipLabel: 'general.label.deactivate-user',
-        tooltipPosition: TooltipPosition.top,
-        icon: 'icon-close-circle-fill',
-        // permissions: ['users-list.deactivate-user']
-    },
-    {
-        id: ActionType.changePass,
-        tooltipLabel: 'general.label.change-password',
-        tooltipPosition: TooltipPosition.top,
-        icon: 'icon-lock-fill',
-        // permissions: ['users-list.change-password']
-    },
-    {
-        id: ActionType.impersonate,
-        tooltipLabel: 'general.label.impersonate-user',
-        tooltipPosition: TooltipPosition.top,
-        icon: 'icon-impersonate-fill',
-        // permissions: ['users-list.impersonate-user']
-    }
+  {
+    id: ActionType.view,
+    tooltipLabel: 'spc.monitor-groups.label.view-monitor-group',
+    tooltipPosition: TooltipPosition.top,
+    icon: 'icon-eye-fill',
+    // permissions: ['users-list.view-users']
+  },
+  {
+    id: ActionType.edit_as_view,
+    tooltipLabel: 'spc.monitor-groups.label.view-monitor-group',
+    tooltipPosition: TooltipPosition.top,
+    icon: 'icon-eye-fill',
+    // permissions: ['profiles-list.assign-users'],
+    display: false
+  },
+  {
+    id: ActionType.edit,
+    tooltipLabel: 'spc.monitor-groups.label.edit-monitor-group',
+    tooltipPosition: TooltipPosition.top,
+    icon: 'icon-edit-fill',
+    // permissions: ['users-list.edit-user']
+  },
+  {
+    id: ActionType.copy,
+    tooltipLabel: 'spc.monitor-groups.label.copy-monitor-group',
+    tooltipPosition: TooltipPosition.top,
+    icon: 'icon-copy-fill',
+    // permissions: ['profiles-list.copy-profile'],
+    display: false
+  },
+  {
+    id: ActionType.delete,
+    tooltipLabel: 'spc.monitor-groups.label.delete-monitor-group',
+    tooltipPosition: TooltipPosition.top,
+    icon: 'icon-trash-2-fill',
+    // permissions: ['profiles-list.delete-profile']
+  }
 ];

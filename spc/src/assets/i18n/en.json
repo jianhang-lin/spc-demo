@@ -5,6 +5,10 @@
       "label": {
         "go-to-function-home-page": "GO TO FUNCTION HOME",
         "add-monitor-group": "ADD MONITOR GROUP",
+        "view-monitor-group": "View monitor group",
+        "edit-monitor-group": "Edit monitor group",
+        "copy-monitor-group": "Copy monitor group",
+        "delete-monitor-group": "Delete monitor group",
         "monitor-group-information": "Monitor Group Information",
         "group-name": "Group Name",
         "group-name-placeholder": "Insert here group name",
