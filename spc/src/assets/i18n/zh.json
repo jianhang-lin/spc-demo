@@ -116,7 +116,9 @@
       "clear-all": "清空全部",
       "rows": "行",
       "page": "页",
-      "of-many": "更多"
+      "of-many": "更多",
+      "save": "保存",
+      "cancel": "取消"
     },
     "error": {
       "required": "必填"

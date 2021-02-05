@@ -43,6 +43,7 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
   netUsersSubscription: Subscription;
   timeZoneInfosSubscription: Subscription;
   dataSourceTypeOptionsSubscription: Subscription;
+  state = FormState;
   constructor(
     private translateService: TranslateService,
     private confirmationService: ConfirmationService,
@@ -170,5 +171,13 @@ export class MonitorGroupDetailsFormComponent implements OnInit, OnDestroy {
 
   focusOnAside() {
     // this.assignUsersButton ? this.assignUsersButton.nativeElement.focus() : this.customersDropdown.focusInput();
+  }
+
+  saveMonitorGroup() {
+    console.log('save MonitorGroup...');
+  }
+
+  saveMonitorGroupTabPressed($event: any) {
+    console.log('save MonitorGroup Tab....');
   }
 }

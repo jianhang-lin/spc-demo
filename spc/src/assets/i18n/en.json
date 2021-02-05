@@ -116,7 +116,9 @@
       "clear-all": "Clear All",
       "rows": "Rows",
       "page": "Page",
-      "of-many": "Many"
+      "of-many": "Many",
+      "save": "Save",
+      "cancel": "Cancel"
     },
     "error": {
       "required": "Required field"

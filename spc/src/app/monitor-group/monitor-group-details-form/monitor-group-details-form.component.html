@@ -2,7 +2,7 @@
   class="columns-2"
   [openAside]="true"
   titleLabel="{{asideTitle | translate}}"
-  [showLoading]="netUserOptions?.length === 0 || timeZonesInfos?.length === 0"
+  [showLoading]="netUserOptions?.length === 0 || timeZonesInfoOptions?.length === 0"
   [showAsideList]="false"
   (closeClick)="closeForm()"
 >
@@ -97,6 +97,24 @@
         maxlength="1024"
         placeholder="{{ 'spc.monitor-groups.label.description-placeholder' | translate }}"
       />
+    </div>
+  </div>
+
+  <div class="monitorGroupForm-actions">
+    <div>
+      <button class="btn-cancel" (click)="closeForm()">
+        {{ 'general.label.cancel' | translate }}
+      </button>
+      <span>
+        <button
+          *ngIf="formState !== state.copy && formState !== state.view"
+          class="btn-add"
+          (click)="saveMonitorGroup()"
+          (keydown.Tab)="saveMonitorGroupTabPressed($event)"
+        >
+            {{ formState === state.add ? ('spc.monitor-groups.label.add-monitor-group' | translate) : ('general.label.save' | translate) }}
+        </button>
+      </span>
     </div>
   </div>
 </app-aside-togglable>
