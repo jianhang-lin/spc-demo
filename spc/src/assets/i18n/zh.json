@@ -23,7 +23,12 @@
       },
       "edit-monitor-group-title-label": "编辑监控组",
       "add-monitor-group-title-label": "新增监控组",
-      "add-monitor-group-cancel-message": "确定要取消新增监控组?"
+      "add-monitor-group-cancel-message": "确定要取消新增监控组?",
+      "delete-monitor-group-confirm-message": "确定要删除监控组?",
+      "success-delete-monitor-group": "删除监控组成功!",
+      "fail-delete-monitor-group": "删除监控组失败!",
+      "monitor-group-not-found": "监控组不存在",
+      "monitor-group-internal-error": "内部异常"
     },
     "monitor-groups-list": {
       "group-name": "组名",

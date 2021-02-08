@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { ActionType, Column } from 'shared-ui';
 import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';
 import { MonitorGroupDetailsFormComponent } from '../monitor-group-details-form/monitor-group-details-form.component';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CommonService } from '../../services/common.service';
 import { HomeService } from '../../services/home.service';
 import { MonitorGroupService } from '../../services/monitor-group.service';
@@ -45,6 +45,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
   tableData = [];
   tableColumns = [];
   totalRecords: number;
+  selectedRows: Array<MonitorGroup> = [];
   addUserOptions = [
     { label: 'users-list.federated', value: UserDetailsType.FEDERATED },
     { label: 'users-list.non-federated', value: UserDetailsType.NONFEDERATED }
@@ -75,6 +76,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
     private httpClient: HttpClient,
     private translateService: TranslateService,
     private confirmationService: ConfirmationService,
+    private messageService: MessageService,
     private commonService: CommonService,
     private homeService: HomeService,
     private monitorGroupService: MonitorGroupService,
@@ -255,7 +257,7 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
         this.editMonitorGroup(event[1][0]);
         break;
       case ActionType.delete:
-        // this.deleteProfile(event[1][0]);
+        this.deleteMonitorGroup(event[1][0]);
         break;
       case ActionType.copy:
         // this.copyProfile(event[1][0]);
@@ -273,6 +275,54 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
     this.monitorGroup = monitorGroup;
     this.showForm = true;
     this.formState = FormState.edit;
+  }
+
+  deleteMonitorGroup(monitorGroup) {
+    const index = this.getIndexOfTableData(this.selectedRows[0]);
+    console.log(index);
+    this.confirmationService.confirm({
+      message: this.translateService.instant('spc.monitor-groups.delete-monitor-group-confirm-message'),
+      accept: () => {
+        this.monitorGroupService.deleteMonitorGroup(monitorGroup.id).subscribe(
+          () => {
+            console.log('deleteMonitorGroup....');
+            this.messageService.add({
+              severity: 'info',
+              detail: this.translateService.instant('spc.monitor-groups.success-delete-monitor-group')
+            });
+            this.selectedRows.splice(index, 1);
+            this.selectedRows = [...this.selectedRows];
+            this.monitorGroupsTable.getDataSearchRequest();
+          },
+          (error) => {
+            switch (error.status) {
+              case 404:
+                this.messageService.add({
+                  severity: 'error',
+                  detail: this.translateService.instant('spc.monitor-groups.monitor-group-not-found')
+                });
+                break;
+              case 500:
+              default:
+                this.messageService.add({
+                  severity: 'error',
+                  detail: this.translateService.instant('spc.monitor-groups.monitor-group-internal-error')
+                });
+                break;
+            }
+          }
+        );
+      },
+      reject: () => {}
+    });
+  }
+
+  getIndexOfTableData(selectedRow: MonitorGroup) {
+    return this.tableData.findIndex((row) => row.id === selectedRow.id);
+  }
+
+  getIndexOfMonitor(monitorGroup: MonitorGroup, selectedRows: Array<MonitorGroup>) {
+    return selectedRows.findIndex((row) => row.id === monitorGroup.id);
   }
 
   viewMonitorGroup(monitorGroup) {
@@ -399,5 +449,9 @@ export class MonitorGroupListComponent implements OnInit, AfterViewInit, OnDestr
     this.showForm = false;
     this.monitorGroup = null;
     this.monitorGroupsTable.filters.focusFirstFilter();
+  }
+
+  onRowSelect(selectedRows: Array<MonitorGroup>) {
+    this.selectedRows = selectedRows;
   }
 }
