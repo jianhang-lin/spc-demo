@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
-import { isNull} from 'util';
+import { isNull } from 'util';
 import { Subscription } from 'rxjs';
 import { ActionType, Column } from 'shared-ui';
 import { CustomizedTableComponent } from 'shared-ui/lib/components/primeng/customized-table/customized-table.component';

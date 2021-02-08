@@ -130,35 +130,35 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     isGlobal: true,
     isDisplayed: true,
     autofocus: true,
-    sortDisabled: false
+    sortDisabled: true
   },
   {
     header: 'spc.monitor-groups-list.data-source-type',
     field: 'datasourceType',
     isDisplayed: true,
     autofocus: false,
-    sortDisabled: false
+    sortDisabled: true
   },
   {
     header: 'spc.monitor-groups-list.sfdc-timezone',
     field: 'sfdcTimezone',
     isDisplayed: true,
     autofocus: false,
-    sortDisabled: false
+    sortDisabled: true
   },
   {
     header: 'spc.monitor-groups-list.net-user-id',
     field: 'netUserId',
     isDisplayed: true,
     autofocus: false,
-    sortDisabled: false
+    sortDisabled: true
   },
   {
     header: 'spc.monitor-groups-list.mds-url',
     field: 'mdsUrl',
     isDisplayed: true,
     autofocus: false,
-    sortDisabled: false
+    sortDisabled: true
   },
   {
     header: 'spc.monitor-groups-list.icon',
@@ -166,6 +166,6 @@ export let monitorGroupsColumnsSite: Array<Column> = [
     isDisplayed: true,
     isImage: true,
     autofocus: false,
-    sortDisabled: false,
+    sortDisabled: true
   },
 ];
